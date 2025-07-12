@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   },
 }
 
+// Optimisation pour les bots
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
 export default function ContactPage() {
   return (
     <main className="relative">

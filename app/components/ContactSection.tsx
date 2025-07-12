@@ -103,6 +103,39 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 relative">
+      {/* Contenu statique pour les bots */}
+      <div className="sr-only">
+        <h2>Contact Margoul1 - Développeur Full Stack</h2>
+        <p>Contactez-moi pour vos projets de développement web, applications React, Next.js, Node.js</p>
+        
+        <h3>Informations de contact :</h3>
+        <ul>
+          <li>Email : theo.morio@margoul1.dev</li>
+          <li>Téléphone : +33 6 43 32 34 12</li>
+          <li>Localisation : Entre Bordeaux et Bassin d&apos;Arcachon, France</li>
+          <li>LinkedIn : https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/</li>
+        </ul>
+        
+        <h3>Réseaux sociaux :</h3>
+        <ul>
+          <li>GitHub : https://github.com/margoul1Malin</li>
+          <li>LinkedIn : https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/</li>
+          <li>Twitter : https://x.com/PinokioS1ffredi</li>
+        </ul>
+        
+        <h3>Services proposés :</h3>
+        <ul>
+          <li>Développement d&apos;applications web React et Next.js</li>
+          <li>Développement backend Node.js et Python</li>
+          <li>Intégration d&apos;APIs et bases de données</li>
+          <li>Optimisation SEO et performance</li>
+          <li>Consulting technique et architecture</li>
+        </ul>
+        
+        <p>Disponible pour de nouveaux projets - Temps de réponse moyen : 24h</p>
+        <p>Zone d&apos;intervention : Bordeaux, Bassin d&apos;Arcachon, Nouvelle-Aquitaine</p>
+      </div>
+      
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-in-up">

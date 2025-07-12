@@ -15,7 +15,15 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Construire le filtre
-    const where: any = {};
+    const where: {
+      status?: string;
+      OR?: Array<{
+        name?: { contains: string; mode: 'insensitive' };
+        email?: { contains: string; mode: 'insensitive' };
+        subject?: { contains: string; mode: 'insensitive' };
+        message?: { contains: string; mode: 'insensitive' };
+      }>;
+    } = {};
     
     if (status && status !== 'all') {
       where.status = status;
@@ -49,7 +57,7 @@ export async function GET(request: NextRequest) {
       }
     });
 
-    const statsObj = stats.reduce((acc, stat) => {
+    const statsObj = stats.reduce((acc: Record<string, number>, stat) => {
       acc[stat.status] = stat._count.status;
       return acc;
     }, {} as Record<string, number>);

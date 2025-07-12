@@ -63,6 +63,50 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="py-20 relative">
+      {/* Contenu statique pour les bots */}
+      <div className="sr-only">
+        <h2>Mes Compétences</h2>
+        <p>Un aperçu de mes compétences techniques et de mon niveau d&apos;expertise dans chaque domaine.</p>
+        
+        <h3>Frontend</h3>
+        <ul>
+          <li>React (95%)</li>
+          <li>Next.js (90%)</li>
+          <li>TypeScript (67%)</li>
+          <li>Tailwind CSS (92%)</li>
+          <li>Vue.js (75%)</li>
+        </ul>
+        
+        <h3>Backend</h3>
+        <ul>
+          <li>Node.js (75%)</li>
+          <li>Python (65%)</li>
+          <li>Prisma (95%)</li>
+          <li>MongoDB (87%)</li>
+          <li>GraphQL (70%)</li>
+        </ul>
+        
+        <h3>DevOps & SEO</h3>
+        <ul>
+          <li>Docker (65%)</li>
+          <li>Git (90%)</li>
+          <li>SEO Technique (85%)</li>
+          <li>Analytics (78%)</li>
+          <li>Search Console (82%)</li>
+        </ul>
+        
+        <h3>Outils & Technologies</h3>
+        <ul>
+          <li>VS Code</li>
+          <li>Linux</li>
+          <li>Stripe</li>
+          <li>Git</li>
+          <li>Python</li>
+          <li>Bash</li>
+          <li>UberSuggest</li>
+        </ul>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-in-up">

@@ -4,9 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { FaEnvelope, FaEye } from 'react-icons/fa';
 
-  
 const HeroSection = () => {
-
   const [, setIsScrolled] = useState(false);
   const [, setActiveSection] = useState('home');
 
@@ -67,6 +65,19 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Contenu statique pour les bots (invisible mais indexable) */}
+      <div className="sr-only">
+        <h1>Margoul1 - Développeur Web Full Stack</h1>
+        <p>Développeur web passionné basé entre Bordeaux et le Bassin d&apos;Arcachon</p>
+        <p>Je crée des expériences web exceptionnelles avec des technologies modernes et un design innovant qui capte l&apos;attention.</p>
+        <p>Compétences : React, Next.js, Django, Node.js, Python, Git</p>
+        <p>Disponible pour de nouveaux projets</p>
+        <nav>
+          <a href="#projects">Voir mes projets</a>
+          <a href="#contact">Me contacter</a>
+        </nav>
+      </div>
+
       {/* Particules flottantes */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (

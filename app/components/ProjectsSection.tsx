@@ -98,6 +98,35 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-20 relative">
+      {/* Contenu statique pour les bots */}
+      <div className="sr-only">
+        <h2>Projets de Margoul1 - Développeur Full Stack</h2>
+        <p>Portfolio de projets web et applications développées avec React, Next.js, Node.js, Python</p>
+        
+        <h3>Projets Principaux :</h3>
+        <ul>
+          <li>DrHead - Plateforme de Blogging, Vidéos, et Formations en ligne (React, Node.js, MongoDB, Stripe)</li>
+          <li>Crypto Listings - Site de mise en avant des futurs listings de cryptomonnaies (Next.js, TypeScript, Python)</li>
+          <li>ClimGo - Site vitrine pour entreprise de chauffage et climatisation (Next.js, Tailwind, Prisma)</li>
+          <li>Margoul1 Store - Application de vente de produits digitaux (React, Node.js, MongoDB, Stripe)</li>
+          <li>Watson - Outil d&apos;OSINT avancé (Python, BeautifulSoup, Selenium)</li>
+          <li>gOsint - Framework d&apos;OSINT complet (Next.js, TypeScript, Python)</li>
+        </ul>
+        
+        <h3>Technologies utilisées :</h3>
+        <p>React, Next.js, TypeScript, Node.js, MongoDB, Python, Tailwind CSS, Prisma, Stripe, BeautifulSoup, Selenium, Bash, Zsh</p>
+        
+        <h3>Catégories :</h3>
+        <ul>
+          <li>Développement Full Stack</li>
+          <li>Développement Frontend</li>
+          <li>Intelligence Artificielle</li>
+          <li>DevOps</li>
+        </ul>
+        
+        <p>Projets disponibles sur GitHub : <a href="https://github.com/margoul1Malin">https://github.com/margoul1Malin</a></p>
+      </div>
+      
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-in-up">

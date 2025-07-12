@@ -32,6 +32,36 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-20 relative">
+      {/* Contenu statique pour les bots */}
+      <div className="sr-only">
+        <h2>À Propos de Margoul1</h2>
+        <p>Découvrez qui je suis et ce qui me motive dans ma passion pour le développement web.</p>
+        
+        <h3>Mon Parcours</h3>
+        <p>Passioné par l&apos;informatique depuis longtemps, j&apos;ai commencé mon voyage en tant que développeur web autodidacte. De Hobbie on est passé à Professionnel, je suis passé par plein de projets et technologies diverses et variées. Mais ma capacité à construire et rendre des sites web rapidement et avec soin à vite pris le dessus. Je me suis formé aux bases d&apos;Active Directory, et ai pas mal parcouru les plateformes de CTF afin de parfaire ma boîte à outil informatique.</p>
+        <ul>
+          <li>3+ années d&apos;expérience</li>
+          <li>10+ projets réalisés</li>
+          <li>100% Clients Satisfaits</li>
+        </ul>
+        
+        <h3>Mes Principes</h3>
+        <p>J&apos;en ai absolument aucun. Je préfère laisser les gens faire ce qu&apos;ils veulent, et moi faire ce que je veux puis m&apos;adapter à ce qui se présente à moi, peut-être que ce sera vous ? :)</p>
+        <ul>
+          <li>Code propre</li>
+          <li>Performance optimale</li>
+          <li>Accessibilité universelle</li>
+        </ul>
+        
+        <h3>Mes Passions</h3>
+        <p>Quand je ne suis pas concentré sur le dev, je me concentre principalement sur la gestion de la sécurité informatique, le sport et la nutrition.</p>
+        <ul>
+          <li>Veille technologique</li>
+          <li>Jeux Vidéos</li>
+          <li>Apprendre tout et n&apos;importe quoi</li>
+        </ul>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-slide-in-up">
