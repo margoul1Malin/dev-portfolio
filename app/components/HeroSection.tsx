@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { FaEnvelope, FaEye } from 'react-icons/fa';
 
 const HeroSection = () => {
@@ -162,15 +161,7 @@ const HeroSection = () => {
       </div>
 
       {/* Indicateur de scroll */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <Image 
-          src="/PepeClown.png" 
-          alt="Scroll" 
-          width={200} 
-          height={200} 
-          className="w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40"
-        />
-      </div>
+      
     </section>
   );
 };

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { FaPalette, FaCogs, FaRocket, FaLaptopCode, FaLinux, FaCreditCard, FaGithub, FaPython, FaTerminal, FaChartBar } from 'react-icons/fa';
+import { CVDownloadButton } from './CVGenerator';
 
 const SkillsSection = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
@@ -14,7 +15,7 @@ const SkillsSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 } // Réduit le threshold pour les petits écrans
     );
 
     const element = document.getElementById('skills');
@@ -122,22 +123,22 @@ const SkillsSection = () => {
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={category.title}
-              className={`glass rounded-3xl p-8 hover:glass-strong transition-all duration-500 ${
-                isVisible ? 'animate-slide-in-up' : 'opacity-0'
+              className={`glass rounded-3xl p-6 md:p-8 hover:glass-strong transition-all duration-500 ${
+                isVisible ? 'animate-slide-in-up opacity-100' : 'opacity-70'
               }`}
               style={{ animationDelay: `${categoryIndex * 0.2}s` }}
             >
               {/* En-tête de catégorie */}
-              <div className="text-center mb-8">
+              <div className="text-center mb-6 md:mb-8">
                 <div className="mb-3 animate-float text-yellow-500" style={{ animationDelay: `${categoryIndex * 0.5}s` }}>
                   {category.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{category.title}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full mx-auto"></div>
               </div>
 
               {/* Liste des compétences */}
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skill.name}
@@ -146,8 +147,8 @@ const SkillsSection = () => {
                     onMouseLeave={() => setHoveredSkill(null)}
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-white font-medium">{skill.name}</span>
-                      <span className="text-white/60 text-sm">{skill.level}%</span>
+                      <span className="text-white font-medium text-sm md:text-base">{skill.name}</span>
+                      <span className="text-white/60 text-xs md:text-sm">{skill.level}%</span>
                     </div>
                     
                     {/* Barre de progression */}
@@ -158,7 +159,7 @@ const SkillsSection = () => {
                             hoveredSkill === `${category.title}-${skill.name}` ? 'animate-pulse' : ''
                           }`}
                           style={{
-                            width: isVisible ? `${skill.level}%` : '0%',
+                            width: `${skill.level}%`, // Toujours afficher la barre complète
                             transitionDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s`
                           }}
                         />
@@ -212,22 +213,14 @@ const SkillsSection = () => {
           
           {/* Bouton CV central avec cercles animés */}
           <div className="flex justify-center">
-            <button 
-              className="group relative w-80 h-80 mx-auto transition-all duration-300 hover:scale-105"
-              onClick={() => {
-                const cvSection = document.getElementById('cv-section');
-                if (cvSection) {
-                  cvSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
+            <CVDownloadButton className="group relative w-80 h-80 mx-auto transition-all duration-300 hover:scale-105">
               {/* Cercles animés de fond */}
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 rounded-full animate-pulse"></div>
               <div className="absolute inset-4 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full animate-pulse animation-delay-1000"></div>
               <div className="absolute inset-8 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 rounded-full animate-pulse animation-delay-2000"></div>
               
               {/* Bouton CV central */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center cursor-pointer">
                 <div className="w-32 h-32 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full flex items-center justify-center text-black font-bold text-2xl hover-glow group-hover:scale-110 transition-all duration-300">
                   <span className="flex flex-col items-center">
                     <span className="text-3xl mb-1">CV</span>
@@ -237,7 +230,7 @@ const SkillsSection = () => {
                   </span>
                 </div>
               </div>
-            </button>
+            </CVDownloadButton>
           </div>
         </div>
       </div>

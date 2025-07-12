@@ -7,7 +7,7 @@ import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import StaticContent from './components/StaticContent';
-
+import ScrollPointer from './components/ScrollPointer';
 // Métadonnées spécifiques pour la page d'accueil
 export const metadata: Metadata = {
   alternates: {
@@ -31,6 +31,7 @@ export default function Home() {
       {/* Interface utilisateur interactive */}
       <Navigation />
       <HeroSection />
+      <ScrollPointer />
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
