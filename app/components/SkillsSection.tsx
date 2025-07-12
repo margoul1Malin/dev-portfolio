@@ -118,7 +118,7 @@ const SkillsSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={category.title}
@@ -178,8 +178,8 @@ const SkillsSection = () => {
 
         {/* Section outils & technologies */}
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">Certains outils & Compétence</h3>
-          <div className="flex flex-wrap justify-center gap-4">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-8">Certains outils & Compétence</h3>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             {[
               { name: "VS Code", icon: <FaLaptopCode className="text-2xl" /> },
               { name: "Linux", icon: <FaLinux className="text-2xl" /> },
@@ -191,12 +191,12 @@ const SkillsSection = () => {
             ].map((tool, index) => (
               <div
                 key={tool.name}
-                className="glass px-6 py-4 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105 animate-float"
+                className="glass px-4 py-3 md:px-6 md:py-4 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105 animate-float"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="flex items-center space-x-3">
-                  <span className="text-yellow-500">{tool.icon}</span>
-                  <span className="text-white font-medium">{tool.name}</span>
+                <div className="flex items-center space-x-2 md:space-x-3">
+                  <span className="text-yellow-500 text-lg md:text-2xl">{tool.icon}</span>
+                  <span className="text-white font-medium text-sm md:text-base">{tool.name}</span>
                 </div>
               </div>
             ))}
