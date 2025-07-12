@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
