@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://margoul1.dev/sitemap.xml
+
+# Disallow admin routes
+Disallow: /admin
+Disallow: /api/
+Disallow: /auth/
+
+# Allow important pages
+Allow: /
+Allow: /projects
+Allow: /contact
+Allow: /about 

@@ -71,7 +71,7 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-white/70">
               <p>Bordeaux, France</p>
-              <p>margoul1dev@gmail.com</p>
+              <p>theo.morio@margoul1.dev</p>
               <p>+33 6 43 32 34 12</p>
             </div>
           </div>

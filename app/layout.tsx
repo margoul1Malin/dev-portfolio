@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./contexts/AuthContext";
+import StructuredData from "./components/StructuredData";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -16,11 +17,84 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Développeur Web",
-  description: "Portfolio moderne d'un développeur web passionné",
-  keywords: ["développeur", "web", "portfolio", "react", "next.js"],
-  authors: [{ name: "Votre Nom" }],
-  viewport: "width=device-width, initial-scale=1",
+  title: {
+    default: "Margoul1 - Développeur Web Full Stack | Portfolio",
+    template: "%s | Margoul1 - Développeur Web"
+  },
+  description: "Développeur web full stack passionné basé entre Bordeaux et le Bassin d'Arcachon, spécialisé en React, Next.js, Django et Node.js. Découvrez mes projets et contactez-moi pour vos besoins de développement web moderne.",
+  keywords: [
+    "développeur web",
+    "full stack",
+    "React",
+    "Next.js", 
+    "Django",
+    "Node.js",
+    "JavaScript",
+    "TypeScript",
+    "Python",
+    "portfolio",
+    "développement web",
+    "applications web",
+    "sites web modernes",
+    "Margoul1",
+    "développeur web Bordeaux",
+    "développeur web Bassin d'Arcachon",
+    "développeur web Nouvelle-Aquitaine",
+    "freelance Bordeaux",
+    "développeur React Bordeaux",
+    "développeur Next.js Bordeaux"
+  ],
+  authors: [{ name: "Margoul1", url: "https://margoul1.dev" }],
+  creator: "Margoul1",
+  publisher: "Margoul1",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    url: 'https://margoul1.dev',
+    siteName: 'Margoul1 - Développeur Web',
+    title: 'Margoul1 - Développeur Web Full Stack | Portfolio',
+    description: 'Développeur web full stack passionné basé entre Bordeaux et le Bassin d\'Arcachon, spécialisé en React, Next.js, Django et Node.js. Découvrez mes projets et contactez-moi pour vos besoins de développement web moderne.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Margoul1 - Développeur Web Full Stack | Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Margoul1 - Développeur Web Full Stack',
+    description: 'Développeur web full stack passionné basé entre Bordeaux et le Bassin d\'Arcachon, spécialisé en React, Next.js, Django et Node.js.',
+    images: ['/og-image.png'],
+    creator: '@margoul1',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/logo.svg',
+  },
+  manifest: '/manifest.json',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -30,6 +104,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <StructuredData />
+      </head>
       <body className="font-sans antialiased overflow-x-hidden">
         <AuthProvider>
           <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">

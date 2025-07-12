@@ -68,8 +68,8 @@ const ContactSection = () => {
     {
       icon: <FaEnvelope className="text-xl" />,
       title: "Email",
-      value: "jhonnysinner4@gmail.com",
-      link: "mailto:jhonnysinner4@gmail.com",
+      value: "theo.morio@margoul1.dev",
+      link: "mailto:theo.morio@margoul1.dev",
       color: "from-yellow-500 to-amber-500"
     },
     {
