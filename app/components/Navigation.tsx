@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,21 +15,6 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-    }
-  };
-
-  const navItems = [
-    { id: 'home', label: 'Accueil' },
-    { id: 'about', label: 'À propos' },
-    { id: 'skills', label: 'Compétences' },
-    { id: 'projects', label: 'Projets' },
-    { id: 'contact', label: 'Contact' }
-  ];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
