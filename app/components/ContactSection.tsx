@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaBriefcase, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -11,15 +12,49 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [notification, setNotification] = useState<{
+    type: 'success' | 'error';
+    message: string;
+  } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulation d'envoi
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setNotification(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setNotification({
+          type: 'success',
+          message: data.message || 'Votre message a été envoyé avec succès !'
+        });
+        // Reset form
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setNotification({
+          type: 'error',
+          message: data.error || 'Une erreur est survenue. Veuillez réessayer.'
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      setNotification({
+        type: 'error',
+        message: 'Erreur de connexion. Veuillez vérifier votre connexion internet.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -31,28 +66,28 @@ const ContactSection = () => {
 
   const contactMethods = [
     {
-      icon: "📧",
+      icon: <FaEnvelope className="text-xl" />,
       title: "Email",
       value: "jhonnysinner4@gmail.com",
       link: "mailto:jhonnysinner4@gmail.com",
       color: "from-yellow-500 to-amber-500"
     },
     {
-      icon: "📱",
+      icon: <FaPhone className="text-xl" />,
       title: "Téléphone",
       value: "+33 6 43 32 34 12",
       link: "tel:+33643323412",
       color: "from-amber-500 to-orange-500"
     },
     {
-      icon: "🌍",
+      icon: <FaMapMarkerAlt className="text-xl" />,
       title: "Localisation",
       value: "Bordeaux, France",
       link: "#",
       color: "from-orange-500 to-red-500"
     },
     {
-      icon: "💼",
+      icon: <FaBriefcase className="text-xl" />,
       title: "LinkedIn",
       value: "Mon Profil LinkedIn",
       link: "https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/",
@@ -61,9 +96,9 @@ const ContactSection = () => {
   ];
 
   const socialLinks = [
-    { name: "GitHub", icon: "🐙", url: "https://github.com/margoul1Malin", color: "hover:text-gray-400" },
-    { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/", color: "hover:text-blue-400" },
-    { name: "Twitter", icon: "🐦", url: "https://x.com/PinokioS1ffredi", color: "hover:text-blue-300" },
+    { name: "GitHub", icon: <FaGithub className="text-xl" />, url: "https://github.com/margoul1Malin", color: "hover:text-gray-400" },
+    { name: "LinkedIn", icon: <FaLinkedin className="text-xl" />, url: "https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/", color: "hover:text-blue-400" },
+    { name: "Twitter", icon: <FaTwitter className="text-xl" />, url: "https://x.com/PinokioS1ffredi", color: "hover:text-blue-300" },
   ];
 
   return (
@@ -93,7 +128,7 @@ const ContactSection = () => {
                     className="group flex items-center space-x-4 p-4 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center text-xl group-hover:animate-pulse`}>
+                    <div className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-xl flex items-center justify-center group-hover:animate-pulse`}>
                       {method.icon}
                     </div>
                     <div>
@@ -115,7 +150,7 @@ const ContactSection = () => {
                   <a
                     key={social.name}
                     href={social.url}
-                    className={`w-12 h-12 glass rounded-xl flex items-center justify-center text-xl hover:glass-strong transition-all duration-300 hover:scale-110 ${social.color} animate-float`}
+                    className={`w-12 h-12 glass rounded-xl flex items-center justify-center hover:glass-strong transition-all duration-300 hover:scale-110 ${social.color} animate-float`}
                     style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     {social.icon}
@@ -139,112 +174,126 @@ const ContactSection = () => {
 
           {/* Formulaire de contact */}
           <div className="animate-slide-in-right">
-            <form onSubmit={handleSubmit} className="glass rounded-3xl p-8 space-y-6">
+            <div className="glass rounded-3xl p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Envoyez-moi un message</h3>
               
-              {/* Nom */}
-              <div className="relative">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('name')}
-                  onBlur={() => setFocusedField(null)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-500 focus:bg-white/15 transition-all duration-300"
-                  placeholder="Votre nom"
-                  required
-                />
-                {focusedField === 'name' && (
-                  <div className="absolute -top-2 left-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black text-xs px-2 py-1 rounded animate-slide-in-up">
-                    Nom requis
-                  </div>
-                )}
-              </div>
-
-              {/* Email */}
-              <div className="relative">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('email')}
-                  onBlur={() => setFocusedField(null)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-500 focus:bg-white/15 transition-all duration-300"
-                  placeholder="Votre email"
-                  required
-                />
-                {focusedField === 'email' && (
-                  <div className="absolute -top-2 left-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black text-xs px-2 py-1 rounded animate-slide-in-up">
-                    Email valide requis
-                  </div>
-                )}
-              </div>
-
-              {/* Sujet */}
-              <div className="relative">
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('subject')}
-                  onBlur={() => setFocusedField(null)}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-500 focus:bg-white/15 transition-all duration-300"
-                  placeholder="Sujet de votre message"
-                  required
-                />
-                {focusedField === 'subject' && (
-                  <div className="absolute -top-2 left-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black text-xs px-2 py-1 rounded animate-slide-in-up">
-                    Sujet requis
-                  </div>
-                )}
-              </div>
-
-              {/* Message */}
-              <div className="relative">
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('message')}
-                  onBlur={() => setFocusedField(null)}
-                  rows={5}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-500 focus:bg-white/15 transition-all duration-300 resize-none"
-                  placeholder="Votre message..."
-                  required
-                />
-                {focusedField === 'message' && (
-                  <div className="absolute -top-2 left-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-black text-xs px-2 py-1 rounded animate-slide-in-up">
-                    Message requis
-                  </div>
-                )}
-              </div>
-
-              {/* Bouton d'envoi */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center space-x-2">
-                    <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                    <span>Envoi en cours...</span>
+              {/* Notification */}
+              {notification && (
+                <div className={`mb-6 p-4 rounded-xl flex items-center space-x-3 ${
+                  notification.type === 'success' 
+                    ? 'bg-green-500/20 border border-green-500/30' 
+                    : 'bg-red-500/20 border border-red-500/30'
+                }`}>
+                  {notification.type === 'success' ? (
+                    <FaCheckCircle className="text-green-400 text-xl" />
+                  ) : (
+                    <FaExclamationCircle className="text-red-400 text-xl" />
+                  )}
+                  <span className={`${
+                    notification.type === 'success' ? 'text-green-300' : 'text-red-300'
+                  }`}>
+                    {notification.message}
                   </span>
-                ) : (
-                  <span className="flex items-center justify-center space-x-2">
-                    <span>Envoyer le message</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </svg>
-                  </span>
-                )}
-              </button>
-            </form>
+                </div>
+              )}
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Nom */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('name')}
+                    onBlur={() => setFocusedField(null)}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-yellow-500 transition-all duration-300"
+                    placeholder="Votre nom"
+                    required
+                  />
+                  {focusedField === 'name' && (
+                    <div className="absolute inset-0 border-2 border-yellow-500/50 rounded-xl pointer-events-none animate-pulse"></div>
+                  )}
+                </div>
+
+                {/* Email */}
+                <div className="relative">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('email')}
+                    onBlur={() => setFocusedField(null)}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-yellow-500 transition-all duration-300"
+                    placeholder="Votre email"
+                    required
+                  />
+                  {focusedField === 'email' && (
+                    <div className="absolute inset-0 border-2 border-yellow-500/50 rounded-xl pointer-events-none animate-pulse"></div>
+                  )}
+                </div>
+
+                {/* Sujet */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('subject')}
+                    onBlur={() => setFocusedField(null)}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-yellow-500 transition-all duration-300"
+                    placeholder="Sujet"
+                    required
+                  />
+                  {focusedField === 'subject' && (
+                    <div className="absolute inset-0 border-2 border-yellow-500/50 rounded-xl pointer-events-none animate-pulse"></div>
+                  )}
+                </div>
+
+                {/* Message */}
+                <div className="relative">
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('message')}
+                    onBlur={() => setFocusedField(null)}
+                    rows={6}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-yellow-500 transition-all duration-300 resize-none"
+                    placeholder="Votre message"
+                    required
+                  />
+                  {focusedField === 'message' && (
+                    <div className="absolute inset-0 border-2 border-yellow-500/50 rounded-xl pointer-events-none animate-pulse"></div>
+                  )}
+                </div>
+
+                {/* Bouton d'envoi */}
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full px-8 group py-4 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center space-x-2">
+                      <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                      <span>Envoi en cours...</span>
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center space-x-2 ">
+                      <span>Envoyer le message</span>
+                      <svg className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                    </span>
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

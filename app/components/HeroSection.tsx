@@ -1,8 +1,51 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { FaEnvelope, FaEye } from 'react-icons/fa';
 
+  
 const HeroSection = () => {
+
+  const [, setIsScrolled] = useState(false);
+  const [, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId);
+    }
+  };
+
+  const btnITems = [
+    { 
+      id: 'projects', 
+      label: 'Voir mes projets',
+      icon: FaEye,
+      gradient: 'from-yellow-500 to-amber-500',
+      hoverGradient: 'from-yellow-600 to-amber-600',
+      textColor: 'text-black'
+    },
+    { 
+      id: 'contact', 
+      label: 'Me contacter',
+      icon: FaEnvelope,
+      gradient: 'from-blue-500 to-purple-600',
+      hoverGradient: 'from-blue-600 to-purple-700',
+      textColor: 'text-white'
+    },
+  ];
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
 
@@ -20,7 +63,7 @@ const HeroSection = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const skills = ['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'Git'];
+  const skills = ['React', 'Next.js', 'Django', 'Node.js', 'Python', 'Git'];
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -67,7 +110,7 @@ const HeroSection = () => {
           {/* Sous-titre */}
           <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-3xl mx-auto animate-slide-in-up animation-delay-2000">
             Je crée des expériences web exceptionnelles avec des technologies modernes
-            et un design innovant qui capte l'attention.
+            et un design innovant qui capte l&apos;attention.
           </p>
 
           {/* Compétences flottantes */}
@@ -87,28 +130,29 @@ const HeroSection = () => {
 
           {/* Boutons d'action */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up animation-delay-4000">
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow">
-              <span className="relative z-10">Voir mes projets</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-amber-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
             
-            <button className="group px-8 py-4 glass rounded-2xl text-white font-semibold hover:glass-strong transition-all duration-300 hover:scale-105">
-              <span className="flex items-center space-x-2">
-                <span>Me contacter</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </button>
+            {btnITems.map((btn) => {
+              const IconComponent = btn.icon;
+              return (
+                <button 
+                  key={btn.id} 
+                  onClick={() => scrollToSection(btn.id)} 
+                  className={`group relative px-8 py-4 bg-gradient-to-r ${btn.gradient} rounded-2xl ${btn.textColor} font-semibold hover:scale-105 transition-all duration-300 hover-glow flex items-center justify-center gap-2`}
+                >
+                  <span className="relative z-10">{btn.label}</span> 
+                  <IconComponent className="relative z-10 flex-shrink-0" />
+                  <div className={`absolute inset-0 bg-gradient-to-r ${btn.hoverGradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                </button>
+              );
+            })}
+              
           </div>
         </div>
       </div>
 
       {/* Indicateur de scroll */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
-        </div>
+        <Image src="/PepeClown.png" alt="Scroll" width={200} height={200} />
       </div>
     </section>
   );

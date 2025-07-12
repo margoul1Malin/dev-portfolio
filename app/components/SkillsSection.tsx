@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { FaPalette, FaCogs, FaRocket, FaLaptopCode, FaLinux, FaCreditCard, FaGithub, FaPython, FaTerminal, FaChartBar } from 'react-icons/fa';
 
 const SkillsSection = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
@@ -27,7 +28,7 @@ const SkillsSection = () => {
   const skillCategories = [
     {
       title: "Frontend",
-      icon: "🎨",
+      icon: <FaPalette className="text-4xl" />,
       skills: [
         { name: "React", level: 95, color: "from-yellow-500 to-amber-500" },
         { name: "Next.js", level: 90, color: "from-gray-700 to-gray-900" },
@@ -38,7 +39,7 @@ const SkillsSection = () => {
     },
     {
       title: "Backend",
-      icon: "⚙️",
+      icon: <FaCogs className="text-4xl" />,
       skills: [
         { name: "Node.js", level: 75, color: "from-amber-600 to-orange-600" },
         { name: "Python", level: 65, color: "from-yellow-500 to-orange-600" },
@@ -49,7 +50,7 @@ const SkillsSection = () => {
     },
           {
         title: "DevOps & SEO",
-        icon: "🚀",
+        icon: <FaRocket className="text-4xl" />,
         skills: [
           { name: "Docker", level: 65, color: "from-gray-500 to-gray-700" },
           { name: "Git", level: 90, color: "from-red-500 to-red-700" },
@@ -69,7 +70,7 @@ const SkillsSection = () => {
             <span className="text-white"> Compétences</span>
           </h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto animate-slide-in-up animation-delay-1000">
-            Un aperçu de mes compétences techniques et de mon niveau d'expertise dans chaque domaine.
+            Un aperçu de mes compétences techniques et de mon niveau d&apos;expertise dans chaque domaine.
           </p>
         </div>
 
@@ -84,7 +85,7 @@ const SkillsSection = () => {
             >
               {/* En-tête de catégorie */}
               <div className="text-center mb-8">
-                <div className="text-4xl mb-3 animate-float" style={{ animationDelay: `${categoryIndex * 0.5}s` }}>
+                <div className="mb-3 animate-float text-yellow-500" style={{ animationDelay: `${categoryIndex * 0.5}s` }}>
                   {category.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">{category.title}</h3>
@@ -133,16 +134,16 @@ const SkillsSection = () => {
 
         {/* Section outils & technologies */}
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">Certains de mes Outils & Technologies</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">Certains outils & Compétence</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { name: "VS Code", icon: "💻" },
-              { name: "Linux", icon: "🐧" },
-              { name: "Stripe", icon: "💳" },
-              { name: "Git", icon: "🐙" },
-              { name: "Python", icon: "🐍" },
-              { name: "Bash", icon: "🐚" },
-              { name: "UberSuggest", icon: "📊" },
+              { name: "VS Code", icon: <FaLaptopCode className="text-2xl" /> },
+              { name: "Linux", icon: <FaLinux className="text-2xl" /> },
+              { name: "Stripe", icon: <FaCreditCard className="text-2xl" /> },
+              { name: "Git", icon: <FaGithub className="text-2xl" /> },
+              { name: "Python", icon: <FaPython className="text-2xl" /> },
+              { name: "Bash", icon: <FaTerminal className="text-2xl" /> },
+              { name: "UberSuggest", icon: <FaChartBar className="text-2xl" /> },
             ].map((tool, index) => (
               <div
                 key={tool.name}
@@ -150,7 +151,7 @@ const SkillsSection = () => {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">{tool.icon}</span>
+                  <span className="text-yellow-500">{tool.icon}</span>
                   <span className="text-white font-medium">{tool.name}</span>
                 </div>
               </div>
@@ -158,20 +159,41 @@ const SkillsSection = () => {
           </div>
         </div>
 
-        {/* Graphique radar interactif (simulé) */}
+        {/* Section CV central */}
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">Vue d'ensemble</h3>
-          <div className="relative w-80 h-80 mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 rounded-full animate-pulse"></div>
-            <div className="absolute inset-4 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full animate-pulse animation-delay-1000"></div>
-            <div className="absolute inset-8 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 rounded-full animate-pulse animation-delay-2000"></div>
-            
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-gradient mb-2">85%</div>
-                <div className="text-white/70">Niveau Global</div>
+          <h3 className="text-2xl font-bold text-white mb-8">Mon CV Informatique</h3>
+          <p className="text-white/70 mb-12 max-w-2xl mx-auto">
+            Découvrez mon parcours professionnel détaillé, mes expériences et mes formations.
+          </p>
+          
+          {/* Bouton CV central avec cercles animés */}
+          <div className="flex justify-center">
+            <button 
+              className="group relative w-80 h-80 mx-auto transition-all duration-300 hover:scale-105"
+              onClick={() => {
+                const cvSection = document.getElementById('cv-section');
+                if (cvSection) {
+                  cvSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              {/* Cercles animés de fond */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 rounded-full animate-pulse"></div>
+              <div className="absolute inset-4 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full animate-pulse animation-delay-1000"></div>
+              <div className="absolute inset-8 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 rounded-full animate-pulse animation-delay-2000"></div>
+              
+              {/* Bouton CV central */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full flex items-center justify-center text-black font-bold text-2xl hover-glow group-hover:scale-110 transition-all duration-300">
+                  <span className="flex flex-col items-center">
+                    <span className="text-3xl mb-1">CV</span>
+                    <svg className="w-6 h-6 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </span>
+                </div>
               </div>
-            </div>
+            </button>
           </div>
         </div>
       </div>

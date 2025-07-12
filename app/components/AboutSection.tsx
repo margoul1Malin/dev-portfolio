@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import { FaCode, FaBook, FaGem, FaBullseye } from 'react-icons/fa';
 
 const AboutSection = () => {
   const [activeTab, setActiveTab] = useState('story');
 
   const tabs = [
-    { id: 'story', label: 'Mon Histoire', icon: '📖' },
-    { id: 'values', label: 'Mes Valeurs', icon: '💎' },
-    { id: 'hobbies', label: 'Passions', icon: '🎯' }
+    { id: 'story', label: 'Mon Histoire', icon: <FaBook className="text-lg" /> },
+    { id: 'values', label: 'Mes Valeurs', icon: <FaGem className="text-lg" /> },
+    { id: 'hobbies', label: 'Passions', icon: <FaBullseye className="text-lg" /> }
   ];
 
   const content = {
@@ -42,13 +43,13 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Photo et infos personnelles */}
           <div className="relative animate-slide-in-left">
             <div className="relative">
               {/* Placeholder pour la photo */}
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-yellow-500 to-amber-500 rounded-3xl flex items-center justify-center text-6xl animate-float">
-                👨‍💻
+              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-yellow-500 to-amber-500 rounded-3xl flex items-center justify-center animate-float">
+                <FaCode className="text-6xl text-black" />
               </div>
               
               {/* Éléments décoratifs */}
@@ -57,16 +58,16 @@ const AboutSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-8">
-              <div className="text-center glass rounded-2xl p-4 hover:glass-strong transition-all duration-300">
+            <div className="grid grid-cols-3 gap-4 mt-8 h-[135px] items-end">
+              <div className="text-center glass rounded-2xl p-4 hover:glass-strong transition-all duration-300 h-fit">
                 <div className="text-2xl font-bold text-gradient">3+</div>
                 <div className="text-sm text-white/70">Années</div>
               </div>
-              <div className="text-center glass rounded-2xl p-4 hover:glass-strong transition-all duration-300">
+              <div className="text-center glass rounded-2xl p-4 hover:glass-strong transition-all duration-300 h-fit">
                 <div className="text-2xl font-bold text-gradient">10+</div>
                 <div className="text-sm text-white/70">Projets</div>
               </div>
-              <div className="text-center glass rounded-2xl p-4 hover:glass-strong transition-all duration-300">
+              <div className="text-center glass rounded-2xl p-4 hover:glass-strong transition-all duration-300 h-fit">
                 <div className="text-2xl font-bold text-gradient">100%</div>
                 <div className="text-sm text-white/70">Satisfaction</div>
               </div>
@@ -87,23 +88,23 @@ const AboutSection = () => {
                       : 'glass text-white/70 hover:text-white'
                   }`}
                 >
-                  <span className="text-lg">{tab.icon}</span>
+                  {tab.icon}
                   <span className="font-medium">{tab.label}</span>
                 </button>
               ))}
             </div>
 
             {/* Contenu de l'onglet actif */}
-            <div className="glass rounded-2xl p-8 min-h-[300px]">
+            <div className="glass rounded-2xl p-8 h-[400px] flex flex-col">
               <h3 className="text-2xl font-bold text-white mb-4">
                 {content[activeTab as keyof typeof content].title}
               </h3>
               
-              <p className="text-white/80 leading-relaxed mb-6">
+              <p className="text-white/80 leading-relaxed mb-6 flex-grow">
                 {content[activeTab as keyof typeof content].text}
               </p>
 
-              <div className="space-y-3">
+              <div className="space-y-3 mt-auto">
                 {content[activeTab as keyof typeof content].highlights.map((highlight, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full"></div>
@@ -114,16 +115,7 @@ const AboutSection = () => {
             </div>
 
             {/* Bouton CTA */}
-            <div className="mt-8">
-              <button className="group px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow">
-                <span className="flex items-center space-x-2">
-                  <span>Télécharger mon CV</span>
-                  <svg className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </span>
-              </button>
-            </div>
+            
           </div>
         </div>
       </div>

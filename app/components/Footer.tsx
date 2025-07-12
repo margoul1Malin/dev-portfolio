@@ -1,3 +1,5 @@
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -10,9 +12,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "GitHub", icon: "🐙", url: "https://github.com/margoul1Malin" },
-    { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/" },
-    { name: "Twitter", icon: "🐦", url: "https://x.com/PinokioS1ffredi" },
+    { name: "GitHub", icon: <FaGithub className="text-lg" />, url: "https://github.com/margoul1Malin" },
+    { name: "LinkedIn", icon: <FaLinkedin className="text-lg" />, url: "https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/" },
+    { name: "Twitter", icon: <FaTwitter className="text-lg" />, url: "https://x.com/PinokioS1ffredi" },
   ];
 
   return (
@@ -26,19 +28,18 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center animate-glow">
-                <span className="text-black font-bold text-lg">D</span>
-              </div>
+              <span className="text-black font-bold text-lg">M</span>              </div>
               <span className="text-white font-bold text-xl">Margoul1</span>
             </div>
             <p className="text-white/70 mb-6 max-w-md">
-              Fou de l'informatique, ça pourrait vous servir.
+              Fou de l&apos;informatique, ça pourrait vous servir.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a
                   key={social.name}
                   href={social.url}
-                  className="w-10 h-10 glass rounded-xl flex items-center justify-center text-lg hover:glass-strong transition-all duration-300 hover:scale-110 animate-float"
+                  className="w-10 h-10 glass rounded-xl flex items-center justify-center hover:glass-strong transition-all duration-300 hover:scale-110 animate-float"
                   style={{ animationDelay: `${index * 0.2}s` }}
                   title={social.name}
                 >
@@ -69,53 +70,23 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-white/70">
-              <div className="flex items-center space-x-2">
-                <span>📧</span>
-                <span>jhonnysinner4@gmail.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span>📱</span>
-                <span>+33 6 43 32 34 12</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span>🌍</span>
-                <span>Bordeaux, France</span>
-              </div>
+              <p>Bordeaux, France</p>
+              <p>margoul1dev@gmail.com</p>
+              <p>+33 6 43 32 34 12</p>
             </div>
           </div>
         </div>
 
-        {/* Ligne de séparation */}
+        {/* Séparateur */}
         <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Copyright */}
-            <div className="text-white/60 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="text-white/60 text-sm mb-4 md:mb-0">
               © {currentYear} Margoul1. Tous droits réservés.
             </div>
-
-            {/* Statut */}
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-white/60 text-sm">Disponible pour de nouveaux projets</span>
-            </div>
-
-            {/* Liens légaux */}
-            <div className="flex space-x-4 text-sm">
-              <a href="#" className="text-white/60 hover:text-white transition-colors duration-300">
-                Mentions légales
-              </a>
-              <a href="#" className="text-white/60 hover:text-white transition-colors duration-300">
-                Politique de confidentialité
-              </a>
+            <div className="flex items-center space-x-4 text-white/60 text-sm">
+              <span>Disons, merci aux insomnies et à la caféine.</span>
             </div>
           </div>
-        </div>
-
-        {/* Message de remerciement */}
-        <div className="text-center mt-8">
-          <p className="text-white/50 text-sm">
-            Merci de votre visite ! ✨
-          </p>
         </div>
       </div>
     </footer>

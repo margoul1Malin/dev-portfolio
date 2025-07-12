@@ -43,9 +43,9 @@ const Navigation = () => {
             {/* Logo */}
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center animate-glow">
-                <span className="text-black font-bold text-lg">D</span>
+                <span className="text-black font-bold text-lg">M</span>
               </div>
-              <span className="text-white font-bold text-xl">Dev</span>
+              <span className="text-white font-bold text-xl">margoul1</span>
             </div>
 
             {/* Navigation Items */}

@@ -145,12 +145,12 @@ const ProjectsSection = () => {
               <div className="absolute top-4 right-4 z-10 flex flex-col space-y-2">
                 {project.featured && (
                   <div className="bg-gradient-to-r from-yellow-500 to-amber-500 text-black text-xs px-3 py-1 rounded-full animate-pulse">
-                    ⭐ Favori
+                    ★ Favori
                   </div>
                 )}
                 {project.upcoming && (
                   <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs px-3 py-1 rounded-full animate-pulse">
-                    🚧 En cours
+                    ⚠ En cours
                   </div>
                 )}
               </div>
@@ -216,7 +216,7 @@ const ProjectsSection = () => {
                   <div className="flex space-x-2">
                     {project.upcoming ? (
                       <div className="px-4 py-2 bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg text-white text-sm font-medium cursor-not-allowed opacity-75">
-                        🚧 En développement
+                        ⚠ En développement
                       </div>
                     ) : (
                       <a
