@@ -1,9 +1,14 @@
 import { NextResponse } from 'next/server';
 import { verifyAdminCredentials, generateSessionToken } from '../../../lib/auth';
 
+interface LoginRequestBody {
+  email: string;
+  password: string;
+}
+
 export async function POST(request: Request) {
   try {
-    const { email, password } = await request.json();
+    const { email, password }: LoginRequestBody = await request.json();
     
     if (!email || !password) {
       return NextResponse.json({ 

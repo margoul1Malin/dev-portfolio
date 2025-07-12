@@ -3,9 +3,16 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+interface ContactRequestBody {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body: ContactRequestBody = await request.json();
     const { name, email, subject, message } = body;
 
     // Validation des données

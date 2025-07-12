@@ -1,9 +1,13 @@
 import { NextResponse } from 'next/server';
 import { verifySessionToken } from '../../../lib/auth';
 
+interface VerifyRequestBody {
+  token: string;
+}
+
 export async function POST(request: Request) {
   try {
-    const { token } = await request.json();
+    const { token }: VerifyRequestBody = await request.json();
 
     if (!token) {
       return NextResponse.json({ 

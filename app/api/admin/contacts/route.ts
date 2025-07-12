@@ -3,6 +3,16 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+interface ContactWhereFilter {
+  status?: string;
+  OR?: Array<{
+    name?: { contains: string; mode: 'insensitive' };
+    email?: { contains: string; mode: 'insensitive' };
+    subject?: { contains: string; mode: 'insensitive' };
+    message?: { contains: string; mode: 'insensitive' };
+  }>;
+}
+
 export async function GET(request: NextRequest) {
   try {
     // TODO: Ajouter la vérification d'authentification admin ici
@@ -15,15 +25,7 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Construire le filtre
-    const where: {
-      status?: string;
-      OR?: Array<{
-        name?: { contains: string; mode: 'insensitive' };
-        email?: { contains: string; mode: 'insensitive' };
-        subject?: { contains: string; mode: 'insensitive' };
-        message?: { contains: string; mode: 'insensitive' };
-      }>;
-    } = {};
+    const where: ContactWhereFilter = {};
     
     if (status && status !== 'all') {
       where.status = status;

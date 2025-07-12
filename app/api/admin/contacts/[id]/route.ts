@@ -3,6 +3,10 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+interface UpdateContactRequestBody {
+  status: 'new' | 'read' | 'replied' | 'archived';
+}
+
 // GET - Récupérer un contact spécifique
 export async function GET(
   request: NextRequest,
@@ -40,7 +44,7 @@ export async function PATCH(
 ) {
   try {
     const { id } = await params;
-    const { status } = await request.json();
+    const { status }: UpdateContactRequestBody = await request.json();
 
     if (!status || !['new', 'read', 'replied', 'archived'].includes(status)) {
       return NextResponse.json(
