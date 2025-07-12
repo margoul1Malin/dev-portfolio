@@ -13,6 +13,21 @@ interface ContactWhereFilter {
   }>;
 }
 
+interface ContactStats {
+  status: string;
+  _count: {
+    status: number;
+  };
+}
+
+interface StatsObject {
+  new: number;
+  read: number;
+  replied: number;
+  archived: number;
+  total: number;
+}
+
 export async function GET(request: NextRequest) {
   try {
     // TODO: Ajouter la vérification d'authentification admin ici
@@ -59,22 +74,24 @@ export async function GET(request: NextRequest) {
       }
     });
 
-    const statsObj = stats.reduce((acc: Record<string, number>, stat) => {
+    const statsObj = stats.reduce((acc: Record<string, number>, stat: ContactStats) => {
       acc[stat.status] = stat._count.status;
       return acc;
     }, {} as Record<string, number>);
+
+    const finalStats: StatsObject = {
+      new: statsObj.new || 0,
+      read: statsObj.read || 0,
+      replied: statsObj.replied || 0,
+      archived: statsObj.archived || 0,
+      total
+    };
 
     return NextResponse.json({
       success: true,
       contacts,
       totalPages: Math.ceil(total / limit),
-      stats: {
-        new: statsObj.new || 0,
-        read: statsObj.read || 0,
-        replied: statsObj.replied || 0,
-        archived: statsObj.archived || 0,
-        total
-      }
+      stats: finalStats
     });
 
   } catch (error) {
