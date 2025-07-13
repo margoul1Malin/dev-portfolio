@@ -8,6 +8,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import StaticContent from './components/StaticContent';
 import ScrollPointer from './components/ScrollPointer';
+import PricingSection from './components/PricingSection';
 // Métadonnées spécifiques pour la page d'accueil
 export const metadata: Metadata = {
   alternates: {
@@ -35,6 +36,7 @@ export default function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
+      <PricingSection />
       <ContactSection />
       <Footer />
     </main>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -17,6 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://margoul1.dev' : 'http://localhost:3000'),
   title: {
     default: "Margoul1 - Développeur Web Full Stack | Portfolio",
     template: "%s | Margoul1 - Développeur Web"
@@ -87,14 +88,15 @@ export const metadata: Metadata = {
     apple: '/logo.svg',
   },
   manifest: '/manifest.json',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
   verification: {
     google: 'your-google-verification-code',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({

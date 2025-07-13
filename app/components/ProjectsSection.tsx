@@ -12,8 +12,8 @@ const ProjectsSection = () => {
       id: 1,
       title: "DrHead",
       description: "Une plateforme de Blogging, Vidéos, et Formations en ligne.",
-      category: "fullstack",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Markdown"],
+      category: "Full Stack",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Markdown", "CMS"],
       image: "KnowledgerRectangle.png",
       link: "https://drhead.org",
       github: "https://github.com/margoul1Malin",
@@ -24,8 +24,8 @@ const ProjectsSection = () => {
       id: 2,
       title: "Crypto Listings",
       description: "Site de mise en avant des futurs listings de cryptomonnaies. Principalement via des scrapers.",
-      category: "frontend",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Python", "Bash"],
+      category: "Data Scraping",
+      technologies: ["Next.js", "TypeScript", "Tailwind", "Python", "Bash", "Cryptocurrency"],
       image: "LogoCyptoListings.png",
       link: "https://cryptolistings.net",
       github: "https://github.com/margoul1Malin",
@@ -36,7 +36,7 @@ const ProjectsSection = () => {
       id: 3,
       title: "ClimGo - Chauffage & Climatisation",
       description: "Site vitrine pour une entreprise de chauffage et de climatisation.",
-      category: "frontend",
+      category: "Site Vitrine",
       technologies: ["Next.js", "TypeScript", "Tailwind", "Prisma", "Shadcn/UI"],
       image: "/sdb-pyla.jpeg",
       link: "https://climgo.vercel.app/",
@@ -48,8 +48,8 @@ const ProjectsSection = () => {
       id: 4,
       title: "Margoul1 Store",
       description: "Application de vente de produits digitaux en ligne.",
-      category: "fullstack",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      category: "E-Commerce",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe", "PayPal", "Technologies"],
       image: "LogoMargoul1Store.png",
       link: "#",
       github: "https://github.com/margoul1Malin",
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
       id: 5,
       title: "Watson",
       description: "Un bien meilleur remplaçant pour Sherlock quand il s'agit d'OSINT",
-      category: "ai",
+      category: "OSINT & Data Scraping",
       technologies: ["React", "Python", "BeautifulSoup", "Selenium", "Requests"],
       image: "WatsonLogo.png",
       link: "https://github.com/margoul1Malin",
@@ -72,8 +72,8 @@ const ProjectsSection = () => {
       id: 6,
       title: "gOsint",
       description: "Ce sera LE site web framework d'OSINT par excellence regroupant tout ce qu'on peut imaginer avoir besoin un jour.",
-      category: "devops",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Python", "Bash"],
+      category: "DevOps & OSINT",
+      technologies: ["Next.js", "RabbitMQ", "Tailwind", "Python", "Bash", "REST API"],
       image: "LogoGoSint.png",
       link: "#",
       github: "https://github.com/margoul1Malin",
@@ -161,7 +161,7 @@ const ProjectsSection = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative glass rounded-3xl overflow-hidden hover:glass-strong transition-all duration-500 hover:scale-105 animate-slide-in-up ${
+              className={`group relative glass rounded-3xl overflow-hidden hover:glass-strong transition-all duration-500 hover:scale-105 animate-slide-in-up flex flex-col ${
                 project.featured ? 'ring-2 ring-yellow-500/50' : ''
               } ${
                 project.upcoming ? 'ring-2 ring-orange-500/50 opacity-75' : ''
@@ -219,12 +219,12 @@ const ProjectsSection = () => {
               </div>
 
               {/* Contenu du projet */}
-              <div className="p-6">
+              <div className="p-6 flex-1 flex flex-col">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gradient transition-all duration-300">
                   {project.title}
                 </h3>
                 
-                <p className="text-white/70 mb-4 line-clamp-3">
+                <p className="text-white/70 mb-4 line-clamp-3 flex-grow">
                   {project.description}
                 </p>
 
@@ -241,7 +241,7 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-auto">
                   <div className="flex space-x-2">
                     {project.upcoming ? (
                       <div className="px-4 py-2 bg-gradient-to-r from-gray-500 to-gray-600 rounded-lg text-white text-sm font-medium cursor-not-allowed opacity-75">
