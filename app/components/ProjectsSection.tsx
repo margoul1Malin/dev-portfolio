@@ -32,7 +32,7 @@ const ProjectsSection = () => {
       featured: true,
       upcoming: true
     },
-    {
+     {
       id: 3,
       title: "ClimGo - Chauffage & Climatisation",
       description: "Site vitrine pour une entreprise de chauffage et de climatisation.",

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
+import { sendContactNotifications } from '@/app/lib/email';
 
 const prisma = new PrismaClient();
 
@@ -43,11 +44,48 @@ export async function POST(request: NextRequest) {
       }
     });
 
-    return NextResponse.json({
-      success: true,
-      message: 'Votre message a été envoyé avec succès !',
-      id: contactQuery.id
-    });
+    // Envoi des notifications par email
+    try {
+      const emailResults = await sendContactNotifications({
+        name: contactQuery.name,
+        email: contactQuery.email,
+        subject: contactQuery.subject,
+        message: contactQuery.message,
+        createdAt: contactQuery.createdAt
+      });
+
+      // Log des résultats d'envoi
+      console.log('📧 Résultats d\'envoi des emails:', {
+        admin: emailResults.admin.success ? '✅ Succès' : '❌ Échec',
+        client: emailResults.client.success ? '✅ Succès' : '❌ Échec'
+      });
+
+      // Même si l'envoi d'email échoue, on retourne succès car le message est enregistré
+      return NextResponse.json({
+        success: true,
+        message: 'Votre message a été envoyé avec succès !',
+        id: contactQuery.id,
+        emailStatus: {
+          adminNotification: emailResults.admin.success,
+          clientConfirmation: emailResults.client.success
+        }
+      });
+
+    } catch (emailError) {
+      console.error('❌ Erreur lors de l\'envoi des emails:', emailError);
+      
+      // Retourner succès car le message est enregistré même si l'email échoue
+      return NextResponse.json({
+        success: true,
+        message: 'Votre message a été envoyé avec succès !',
+        id: contactQuery.id,
+        emailStatus: {
+          adminNotification: false,
+          clientConfirmation: false,
+          error: 'Erreur lors de l\'envoi des notifications'
+        }
+      });
+    }
 
   } catch (error) {
     console.error('Erreur lors de l\'enregistrement du contact:', error);
