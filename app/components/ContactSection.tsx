@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaBriefcase, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
 
@@ -68,8 +69,8 @@ const ContactSection = () => {
     {
       icon: <FaEnvelope className="text-xl" />,
       title: "Email",
-      value: "theo.morio@margoul1.dev",
-      link: "mailto:theo.morio@margoul1.dev",
+      value: "contact@margoul1.dev",
+      link: "mailto:contact@margoul1.dev",
       color: "from-yellow-500 to-amber-500"
     },
     {
@@ -110,7 +111,7 @@ const ContactSection = () => {
         
         <h3>Informations de contact :</h3>
         <ul>
-          <li>Email : theo.morio@margoul1.dev</li>
+          <li>Email : contact@margoul1.dev</li>
           <li>Téléphone : +33 6 43 32 34 12</li>
           <li>Localisation : Entre Bordeaux et Bassin d&apos;Arcachon, France</li>
           <li>LinkedIn : https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/</li>
@@ -155,7 +156,7 @@ const ContactSection = () => {
               
               <div className="space-y-6">
                 {contactMethods.map((method, index) => (
-                  <a
+                  <Link
                     key={method.title}
                     href={method.link}
                     className="group flex items-center space-x-4 p-4 rounded-2xl hover:glass-strong transition-all duration-300 hover:scale-105"
@@ -170,7 +171,7 @@ const ContactSection = () => {
                         {method.value}
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -180,14 +181,14 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold text-white mb-6">Suivez-moi</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
-                  <a
+                  <Link
                     key={social.name}
                     href={social.url}
                     className={`w-12 h-12 glass rounded-xl flex items-center justify-center hover:glass-strong transition-all duration-300 hover:scale-110 ${social.color} animate-float`}
                     style={{ animationDelay: `${index * 0.2}s` }}
                   >
                     {social.icon}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

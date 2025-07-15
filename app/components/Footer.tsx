@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
@@ -36,7 +37,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
-                <a
+                <Link
                   key={social.name}
                   href={social.url}
                   className="w-10 h-10 glass rounded-xl flex items-center justify-center hover:glass-strong transition-all duration-300 hover:scale-110 animate-float"
@@ -44,7 +45,7 @@ const Footer = () => {
                   title={social.name}
                 >
                   {social.icon}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -55,12 +56,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-white/70 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -70,8 +71,8 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-white/70">
-              <p>Bordeaux, France</p>
-              <p>theo.morio@margoul1.dev</p>
+              <p>Bordeaux - Arcachon</p>
+              <p>contact@margoul1.dev</p>
               <p>+33 6 43 32 34 12</p>
             </div>
           </div>

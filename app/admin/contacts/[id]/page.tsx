@@ -15,6 +15,7 @@ import {
   FaReply,
   FaArchive
 } from 'react-icons/fa';
+import Link from 'next/link';
 
 interface ContactQuery {
   id: string;
@@ -209,12 +210,12 @@ export default function ContactDetailPage() {
                   <FaEnvelope className="text-yellow-400" />
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <a 
+                    <Link
                       href={`mailto:${contact.email}`}
                       className="text-white text-lg font-semibold hover:text-yellow-400 transition-colors"
                     >
                       {contact.email}
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 

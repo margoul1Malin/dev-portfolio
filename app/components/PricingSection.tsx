@@ -267,7 +267,8 @@ const PricingSection = () => {
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto animate-slide-in-up animation-delay-1000">
             Des solutions web sur mesure adaptées à vos besoins et votre budget.
-            Chaque projet est unique et mérite une attention particulière.
+            Chaque projet est unique et mérite une attention particulière.<br></br><br></br>
+            (<strong>Les prix sont indicatifs et peuvent varier en fonction des besoins et des spécificités du projet ainsi que des moyens du client.</strong>)
           </p>
         </div>
 
@@ -367,19 +368,19 @@ const PricingSection = () => {
               <div className="p-6 pt-0">
                 {plan.isContactOnly ? (
                   <Link href="/contact" className="w-full">
-                    <button className="w-full px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow">
+                    <button className="cursor-pointer w-full px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow">
                       Demander un devis
                     </button>
                   </Link>
                                  ) : (
                    <div className="space-y-4">
                      <Link href="/contact">
-                       <button className="my-4 w-full px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow">
+                       <button className="my-4 cursor-pointer w-full px-6 py-3 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow">
                          Commander maintenant
                        </button>
                      </Link>
                      <Link href="/contact">
-                       <button className="w-full px-6 py-3 glass rounded-xl text-white/80 font-medium hover:text-white hover:glass-strong transition-all duration-300">
+                       <button className="cursor-pointer  w-full px-6 py-3 glass rounded-xl text-white/80 font-medium hover:text-white hover:glass-strong transition-all duration-300">
                          Discuter du projet
                        </button>
                      </Link>
@@ -409,14 +410,14 @@ const PricingSection = () => {
                   Découvrez d&apos;autres services sur
                 </p>
                 
-                <a
+                <Link
                   href="https://margoul1.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block w-full px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl text-white font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
                 >
                   Voir sur mon autre Portfolio →
-                </a>
+                </Link>
                 
                 <p className="text-white/60 text-xs">
                   Ou contactez-moi directement pour discuter de votre projet
@@ -442,12 +443,12 @@ const PricingSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <button className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow">
+                <button className="cursor-pointer px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl text-black font-semibold hover:scale-105 transition-all duration-300 hover-glow">
                   Prenez Contact
                 </button>
               </Link>
               <Link href="#projects">
-                <button className="px-8 py-4 glass rounded-2xl text-white/80 font-medium hover:text-white hover:glass-strong transition-all duration-300">
+                <button className="cursor-pointer px-8 py-4 glass rounded-2xl text-white/80 font-medium hover:text-white hover:glass-strong transition-all duration-300">
                   Voir certaines réalisations
                 </button>
               </Link>

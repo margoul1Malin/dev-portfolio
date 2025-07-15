@@ -158,7 +158,7 @@ export default function StructuredData() {
     "founder": {
       "@type": "Person",
       "name": "Théo Morio",
-      "email": "theo.morio@margoul1.dev",
+      "email": "contact@margoul1.dev",
       "telephone": "+33 6 43 32 34 12",
       "sameAs": [
         "https://github.com/margoul1Malin",
@@ -277,7 +277,7 @@ export default function StructuredData() {
     "author": {
       "@type": "Person",
       "name": "Margoul1",
-      "email": "theo.morio@margoul1.dev",
+      "email": "contact@margoul1.dev",
       "telephone": "+33 6 43 32 34 12",
       "sameAs": [
         "https://github.com/margoul1Malin",
@@ -290,7 +290,7 @@ export default function StructuredData() {
     "copyrightHolder": {
       "@type": "Person",
       "name": "Margoul1",
-      "email": "theo.morio@margoul1.dev",
+      "email": "contact@margoul1.dev",
       "telephone": "+33 6 43 32 34 12",
       "sameAs": [
         "https://github.com/margoul1Malin",

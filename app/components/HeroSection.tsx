@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { FaEnvelope, FaEye } from 'react-icons/fa';
+import Link from 'next/link';
 
 const HeroSection = () => {
   const [, setIsScrolled] = useState(false);
@@ -72,8 +73,8 @@ const HeroSection = () => {
         <p>Compétences : React, Next.js, Django, Node.js, Python, Git</p>
         <p>Disponible pour de nouveaux projets</p>
         <nav>
-          <a href="#projects">Voir mes projets</a>
-          <a href="#contact">Me contacter</a>
+          <Link href="#projects">Voir mes projets</Link>
+          <Link href="#contact">Me contacter</Link>
         </nav>
       </div>
 
@@ -147,7 +148,7 @@ const HeroSection = () => {
                 <button 
                   key={btn.id} 
                   onClick={() => scrollToSection(btn.id)} 
-                  className={`group relative px-8 py-4 bg-gradient-to-r ${btn.gradient} rounded-2xl ${btn.textColor} font-semibold hover:scale-105 transition-all duration-300 hover-glow flex items-center justify-center gap-2`}
+                  className={`group cursor-pointer relative px-8 py-4 bg-gradient-to-r ${btn.gradient} rounded-2xl ${btn.textColor} font-semibold hover:scale-105 transition-all duration-300 hover-glow flex items-center justify-center gap-2`}
                 >
                   <span className="relative z-10">{btn.label}</span> 
                   <IconComponent className="relative z-10 flex-shrink-0" />

@@ -74,7 +74,7 @@ export default function StaticContent() {
           Devis gratuit et réponse rapide garantie.
         </p>
         <address>
-          <p>Email: theo.morio@margoul1.dev</p>
+          <p>Email: contact@margoul1.dev</p>
           <p>Téléphone: +33 6 43 32 34 12</p>
           <p>Localisation: Entre Bordeaux et Bassin d&apos;Arcachon, Nouvelle-Aquitaine</p>
         </address>
