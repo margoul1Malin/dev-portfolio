@@ -15,7 +15,7 @@ const Footer = () => {
   const socialLinks = [
     { name: "GitHub", icon: <FaGithub className="text-lg" />, url: "https://github.com/margoul1Malin" },
     { name: "LinkedIn", icon: <FaLinkedin className="text-lg" />, url: "https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/" },
-    { name: "Twitter", icon: <FaTwitter className="text-lg" />, url: "https://x.com/PinokioS1ffredi" },
+    { name: "Twitter", icon: <FaTwitter className="text-lg" />, url: "https://x.com/OxelyaFr" },
   ];
 
   return (
@@ -72,7 +72,7 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <div className="space-y-2 text-white/70">
               <p>Bordeaux - Arcachon</p>
-              <p>contact@margoul1.dev</p>
+              <p>contact@oxelya.com</p>
               <p>+33 6 43 32 34 12</p>
             </div>
           </div>
@@ -85,7 +85,7 @@ const Footer = () => {
               © {currentYear} Margoul1. Tous droits réservés.
             </div>
             <div className="flex items-center space-x-4 text-white/60 text-sm">
-              <span>Disons, merci aux insomnies et à la caféine.</span>
+              <span>Développé par <Link href="https://www.oxelya.com" className="text-white hover:text-white/80 transition-colors duration-300">Oxelya</Link></span>
             </div>
           </div>
         </div>

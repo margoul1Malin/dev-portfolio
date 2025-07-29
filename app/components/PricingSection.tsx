@@ -39,7 +39,7 @@ const PricingSection = () => {
         { name: 'Multilingue', price: 60 },
         { name: 'Chatbot simple', price: 200 }
       ],
-      price: "120 - 400",
+      price: "120 - 800",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
@@ -66,7 +66,7 @@ const PricingSection = () => {
         { name: 'Newsletter automatique', price: 150 },
         { name: 'Blog in-site', price: 100 }
       ],
-      price: "250 - 2000",
+      price: "250 - 900",
       priceLabel: '€',
       isContactOnly: false,
       popular: true,
@@ -102,8 +102,8 @@ const PricingSection = () => {
     },
     {
       id: 'site-contenu',
-      title: 'Site de Contenu',
-      description: 'Blog ou Plateforme de Vidéos',
+      title: 'Plateforme de Contenu',
+      description: 'Articles, Vidéos, Formations, etc.',
       category: 'Site Éditorial',
       features: [
         'CMS personnalisé',
@@ -115,11 +115,12 @@ const PricingSection = () => {
         'Support technique 30 jours'
       ],
       addons: [
-        { name: 'Plateforme de Vidéos intégrée', price: 300 },
         { name: 'Système de likes/partages', price: 150 },
-        { name: 'Abonnements payants', price: 200 }
+        { name: 'Abonnements payants', price: 200 },
+        { name: 'Système de Notifications', price: 100 },
+        { name: 'Système de Rating & Commentaires', price: 100 },
       ],
-      price: "500 - 2000",
+      price: "350 - 1500",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
@@ -154,7 +155,7 @@ const PricingSection = () => {
     {
       id: 'forum',
       title: 'Forum',
-      description: 'Communauté en ligne avec système de discussion',
+      description: 'Communauté en ligne avec système de discussion et de messagerie',
       category: 'Site Communautaire',
       features: [
         'Système de forums/sujets',
@@ -196,7 +197,7 @@ const PricingSection = () => {
       addons: [
         { name: 'Voir Selon Vos Besoins', price: '0' },
       ],
-      price: "600 - 3000",
+      price: "350 - 3000",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
@@ -222,7 +223,9 @@ const PricingSection = () => {
         { name: 'Algorithme de Recommandation', price: "0-1500€" },
         { name: 'Voir Selon Vos Besoins', price: "0" },
       ],
-      isContactOnly: true,
+      price: "350 - 3000",
+      priceLabel: '€',
+      isContactOnly: false,
       popular: false,
       deliveryTime: 'Sur devis',
       icon: '👥'

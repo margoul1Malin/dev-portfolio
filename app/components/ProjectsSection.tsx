@@ -10,30 +10,42 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: "DrHead",
-      description: "Une plateforme de Blogging, Vidéos, et Formations en ligne.",
+      title: "Oxelya",
+      description: "Site de mon entreprise.",
       category: "Full Stack",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Markdown", "CMS"],
-      image: "KnowledgerRectangle.png",
-      link: "https://drhead.org",
+      technologies: ["Next.js", "TypeScript", "Tailwind", "Python", "Bash", "CMS", "SEO", "CRM", "API"],
+      image: "Oxelya-min.png",
+      link: "https://www.oxelya.com",
       github: "https://github.com/margoul1Malin",
       featured: true,
       upcoming: false
     },
     {
       id: 2,
-      title: "Crypto Listings",
-      description: "Site de mise en avant des futurs listings de cryptomonnaies. Principalement via des scrapers.",
-      category: "Data Scraping",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Python", "Bash", "Cryptocurrency"],
-      image: "LogoCyptoListings.png",
-      link: "https://cryptolistings.net",
+      title: "DrHead",
+      description: "Une plateforme de Blogging, Vidéos, et Formations en ligne.",
+      category: "Full Stack",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Markdown", "CMS"],
+      image: "Drhead-min.png",
+      link: "https://www.drhead.org",
       github: "https://github.com/margoul1Malin",
       featured: true,
-      upcoming: true
+      upcoming: false
+    },
+    {
+      id: 3,
+      title: "Oxelya Shop",
+      description: "Application de vente de produits digitaux en ligne.",
+      category: "Full Stack",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe", "PayPal", "Technologies"],
+      image: "OxelyaShop.png",
+      link: "https://www.oxelya-shop.fr",
+      github: "https://github.com/margoul1Malin",
+      featured: true,
+      upcoming: false
     },
      {
-      id: 3,
+      id: 4,
       title: "ClimGo - Chauffage & Climatisation",
       description: "Site vitrine pour une entreprise de chauffage et de climatisation.",
       category: "Site Vitrine",
@@ -44,18 +56,7 @@ const ProjectsSection = () => {
       featured: false,
       upcoming: false
     },
-    {
-      id: 4,
-      title: "Margoul1 Store",
-      description: "Application de vente de produits digitaux en ligne.",
-      category: "E-Commerce",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "PayPal", "Technologies"],
-      image: "LogoMargoul1Store.png",
-      link: "#",
-      github: "https://github.com/margoul1Malin",
-      featured: true,
-      upcoming: true
-    },
+    
     {
       id: 5,
       title: "Watson",
@@ -70,12 +71,12 @@ const ProjectsSection = () => {
     },
     {
       id: 6,
-      title: "gOsint",
+      title: "aOsint",
       description: "Ce sera LE site web framework d'OSINT par excellence regroupant tout ce qu'on peut imaginer avoir besoin un jour.",
       category: "DevOps & OSINT",
       technologies: ["Next.js", "RabbitMQ", "Tailwind", "Python", "Bash", "REST API"],
-      image: "LogoGoSint.png",
-      link: "#",
+      image: "gOsint-min.png",
+      link: "https://github.com/margoul1Malin",
       github: "https://github.com/margoul1Malin",
       featured: false,
       upcoming: true
