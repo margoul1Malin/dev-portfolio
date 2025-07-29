@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Margoul1 - Développeur Web Full Stack',
-    description: 'Développeur web full stack passionné basé entre Bordeaux et le Bassin d\'Arcachon, spécialisé en React, Next.js, Django et Node.js.',
+    description: 'Développeur web full stack entre Bordeaux et le Bassin d\'Arcachon, à Marcheprime. Création de sites web.',
     images: ['/og-image.png'],
     creator: '@margoul1',
   },

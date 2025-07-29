@@ -7,8 +7,10 @@ export default function StructuredData() {
     "name": "Margoul1",
     "jobTitle": "Développeur Web Full Stack",
     "description": "Développeur web full stack passionné, spécialisé en React, Next.js, Django, Node.js et SEO",
-    "url": "https://margoul1.dev",
-    "image": "https://margoul1.dev/favicon.ico",
+    "url": "https://www.margoul1.dev",
+    "image": "https://www.margoul1.dev/PepeClown.png",
+    "email": "contact@margoul1.dev",
+    "telephone": "+33 6 43 32 34 12",
     "sameAs": [
       "https://github.com/margoul1Malin",
       "https://linkedin.com/in/th%C3%A9o-morio-0901b1254/",
@@ -16,7 +18,7 @@ export default function StructuredData() {
     ],
     "knowsAbout": [
       "React",
-      "Next.js",
+      "Next.js", 
       "Django",
       "Node.js",
       "JavaScript",
@@ -41,42 +43,21 @@ export default function StructuredData() {
           "addressCountry": "France",
           "addressLocality": "Entre Bordeaux et Bassin d'Arcachon"
         }
-      },
-      "skills": [
-        "React",
-        "Next.js",
-        "Django",
-        "Node.js",
-        "JavaScript",
-        "TypeScript",
-        "Python",
-        "Git",
-        "Web Development",
-        "SEO",
-        "Google Search Console",
-        "Bing Webmaster Tools",
-        "Bash / Zsh"
-      ]
+      }
     },
     "offers": {
       "@type": "Offer",
       "itemOffered": {
         "@type": "Service",
         "name": "Développement Web",
-        "description": "Services de développement web full stack, création d'applications web modernes et sites web responsive",
-        "skills": [
-          "React",
-          "Next.js",
-          "Django",
-          "Node.js",
-          "SEO"
-        ]
+        "description": "Services de développement web full stack, création d'applications web modernes et sites web responsive"
       }
     },
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "professional",
-      "url": "https://margoul1.dev"
+      "email": "contact@margoul1.dev",
+      "telephone": "+33 6 43 32 34 12"
     },
     "address": {
       "@type": "PostalAddress",
@@ -152,8 +133,8 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Margoul1 - Développeur Web",
-    "url": "https://margoul1.dev",
-    "logo": "https://margoul1.dev/logo.svg",
+    "url": "https://www.margoul1.dev",
+    "logo": "https://www.margoul1.dev/PepeClown.png",
     "description": "Services de développement web full stack, spécialisé en React, Next.js, Django et Node.js",
     "founder": {
       "@type": "Person",
@@ -272,7 +253,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Margoul1 - Portfolio Développeur Web",
-    "url": "https://margoul1.dev",
+    "url": "https://www.margoul1.dev",
     "description": "Portfolio professionnel de Margoul1, développeur web full stack",
     "author": {
       "@type": "Person",
@@ -297,6 +278,14 @@ export default function StructuredData() {
         "https://linkedin.com/in/th%C3%A9o-morio-0901b1254/",
         "https://twitter.com/PinokioS1ffredi"
       ]
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.margoul1.dev"
+      },
+      "query-input": "required name=search_term_string"
     }
   };
 

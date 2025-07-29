@@ -73,7 +73,7 @@ const HeroSection = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Contenu statique pour les bots (invisible mais indexable) */}
       <div className="sr-only">
-        <h1>Margoul1 - Développeur Web Full Stack</h1>
+        <h2>Margoul1 - Développeur Web Full Stack</h2>
         <p>Développeur web passionné basé entre Bordeaux et le Bassin d&apos;Arcachon</p>
         <p>Je crée des expériences web exceptionnelles avec des technologies modernes et un design innovant qui capte l&apos;attention.</p>
         <p>Compétences : React, Next.js, Django, Node.js, Python, Git</p>

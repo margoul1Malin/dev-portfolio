@@ -106,7 +106,7 @@ const ContactSection = () => {
     <section id="contact" className="py-20 relative">
       {/* Contenu statique pour les bots */}
       <div className="sr-only">
-        <h1>Contact Margoul1 - Développeur Full Stack</h1>
+        <h2>Contact Margoul1 - Développeur Full Stack</h2>
         <p>Contactez-moi pour vos projets de développement web, applications React, Next.js, Node.js</p>
         
         <h3>Informations de contact :</h3>

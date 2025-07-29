@@ -5,7 +5,7 @@ export default function StaticContent() {
   return (
     <div className="sr-only">
       {/* Contenu textuel structuré pour les bots */}
-      <h1>Margoul1 - Développeur Web Full Stack</h1>
+      <h2>Margoul1 - Développeur Web Full Stack</h2>
       <p>
         Développeur web full stack passionné basé entre Bordeaux et le Bassin d&apos;Arcachon, 
         spécialisé en React, Next.js, Django, Node.js et SEO.

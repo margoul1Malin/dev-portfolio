@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: "Accueil", href: "#home" },
+    { name: "Accueil", href: "/" },
     { name: "À propos", href: "#about" },
     { name: "Compétences", href: "#skills" },
     { name: "Projets", href: "#projects" },
@@ -29,7 +29,8 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-xl flex items-center justify-center animate-glow">
-              <span className="text-black font-bold text-lg">M</span>              </div>
+                <span className="text-black font-bold text-lg">M</span>              
+              </div>
               <span className="text-white font-bold text-xl">Margoul1</span>
             </div>
             <p className="text-white/70 mb-6 max-w-md">
