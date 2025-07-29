@@ -18,10 +18,21 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact - Margoul1 Développeur Web',
     description: 'Contactez Margoul1 pour vos projets de développement web. Spécialisé en React, Next.js, Django et Node.js.',
-    url: 'https://margoul1.dev/contact',
+    url: 'https://www.margoul1.dev/contact',
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'Margoul1 - Développeur Web',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Margoul1 - Développeur Web Full Stack | Portfolio',
+      },
+    ],
   },
   alternates: {
-    canonical: 'https://margoul1.dev/contact',
+    canonical: 'https://www.margoul1.dev/contact',
   },
 }
 

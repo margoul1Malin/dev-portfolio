@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter, FaBriefcase, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaTwitter, FaBriefcase, FaCheckCircle, FaExclamationCircle, FaInstagram } from 'react-icons/fa';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -98,7 +98,7 @@ const ContactSection = () => {
 
   const socialLinks = [
     { name: "GitHub", icon: <FaGithub className="text-xl" />, url: "https://github.com/margoul1Malin", color: "hover:text-gray-400" },
-    { name: "LinkedIn", icon: <FaLinkedin className="text-xl" />, url: "https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/", color: "hover:text-blue-400" },
+    { name: "Instagram", icon: <FaInstagram className="text-xl" />, url: "https://www.instagram.com/oxelya.fr/", color: "hover:text-pink-400" },
     { name: "Twitter", icon: <FaTwitter className="text-xl" />, url: "https://x.com/PinokioS1ffredi", color: "hover:text-blue-300" },
   ];
 
@@ -106,7 +106,7 @@ const ContactSection = () => {
     <section id="contact" className="py-20 relative">
       {/* Contenu statique pour les bots */}
       <div className="sr-only">
-        <h2>Contact Margoul1 - Développeur Full Stack</h2>
+        <h1>Contact Margoul1 - Développeur Full Stack</h1>
         <p>Contactez-moi pour vos projets de développement web, applications React, Next.js, Node.js</p>
         
         <h3>Informations de contact :</h3>
@@ -114,13 +114,13 @@ const ContactSection = () => {
           <li>Email : contact@margoul1.dev</li>
           <li>Téléphone : +33 6 43 32 34 12</li>
           <li>Localisation : Entre Bordeaux et Bassin d&apos;Arcachon, France</li>
-          <li>LinkedIn : https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/</li>
+          <li>Instagram : https://www.instagram.com/oxelya.fr/</li>
         </ul>
         
         <h3>Réseaux sociaux :</h3>
         <ul>
           <li>GitHub : https://github.com/margoul1Malin</li>
-          <li>LinkedIn : https://www.linkedin.com/in/th%C3%A9o-morio-0901b1254/</li>
+          <li>Instagram : https://www.instagram.com/oxelya.fr/</li>
           <li>Twitter : https://x.com/PinokioS1ffredi</li>
         </ul>
         

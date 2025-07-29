@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://margoul1.dev' : 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NODE_ENV === 'production' ? 'https://www.margoul1.dev' : 'http://localhost:3000'),
   title: {
     default: "Margoul1 - Développeur Web Full Stack | Portfolio",
     template: "%s | Margoul1 - Développeur Web"
@@ -43,7 +43,12 @@ export const metadata: Metadata = {
     "développeur web Nouvelle-Aquitaine",
     "freelance Bordeaux",
     "développeur React Bordeaux",
-    "développeur Next.js Bordeaux"
+    "développeur Next.js Bordeaux",
+    "création de sites web",
+    "création de sites web Bordeaux",
+    "création de sites web Bassin d'Arcachon",
+    "création de sites web Nouvelle-Aquitaine",
+    "création de sites web Marcheprime",
   ],
   authors: [{ name: "Margoul1", url: "https://margoul1.dev" }],
   creator: "Margoul1",
@@ -62,10 +67,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://margoul1.dev',
+    url: 'https://www.margoul1.dev',
     siteName: 'Margoul1 - Développeur Web',
     title: 'Margoul1 - Développeur Web Full Stack | Portfolio',
-    description: 'Développeur web full stack passionné basé entre Bordeaux et le Bassin d\'Arcachon, spécialisé en React, Next.js, Django et Node.js. Découvrez mes projets et contactez-moi pour vos besoins de développement web moderne.',
+    description: 'Développeur web full stack entre Bordeaux et le Bassin d\'Arcachon, à Marcheprime. Création de sites web.',
     images: [
       {
         url: '/og-image.png',
@@ -90,6 +95,9 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   verification: {
     google: 'your-google-verification-code',
+  },
+  alternates: {
+    canonical: 'https://www.margoul1.dev',
   },
 };
 
