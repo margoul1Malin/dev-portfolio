@@ -48,7 +48,10 @@ const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    // Délai pour une apparition plus fluide
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
     
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
@@ -58,7 +61,10 @@ const HeroSection = () => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   const skills = ['React', 'Next.js', 'Django', 'Node.js', 'Python', 'Git'];
@@ -104,28 +110,28 @@ const HeroSection = () => {
       />
 
       <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-1500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`}>
           {/* Badge de statut */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass mb-8 animate-slide-in-up">
+          <div className="inline-flex items-center px-4 py-2 rounded-full glass mb-8">
             <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
             <span className="text-sm text-white/80">Disponible pour de nouveaux projets</span>
           </div>
 
           {/* Titre principal */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-in-up animation-delay-1000">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="text-gradient">Développeur</span>
             <br />
             <span className="text-white">Web Margoul1</span>
           </h1>
 
           {/* Sous-titre */}
-          <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-3xl mx-auto animate-slide-in-up animation-delay-2000">
+          <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-3xl mx-auto">
             Je crée des expériences web exceptionnelles avec des technologies modernes
             et un design innovant qui capte l&apos;attention.
           </p>
 
           {/* Compétences flottantes */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12 animate-slide-in-up animation-delay-3000">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             {skills.map((skill, index) => (
               <div
                 key={skill}
@@ -140,7 +146,7 @@ const HeroSection = () => {
           </div>
 
           {/* Boutons d'action */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up animation-delay-4000">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             
             {btnITems.map((btn) => {
               const IconComponent = btn.icon;
