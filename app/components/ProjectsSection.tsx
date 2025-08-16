@@ -80,6 +80,90 @@ const ProjectsSection = () => {
       github: "https://github.com/margoul1Malin",
       featured: false,
       upcoming: true
+    },
+    {
+      id: 7,
+      title: "Landing Page - Winalist Le Clos des Rossignols",
+      description: "Landing Page pour un complexe de gîtes qui souhaite capturer du traffic à WinaList  grands requins de sa région et de son domaine.",
+      category: "Full Stack",
+      technologies: ["Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MultiLingue", "i18n"],
+      image: "landingwinalist.png",
+      link: "https://wina-list.fr/fr",
+      github: "https://github.com/margoul1Malin",
+      featured: false,
+      upcoming: false
+    },
+    {
+      id: 8,
+      title: "Landing Page - LoireLovers - Le Clos des Rossignols",
+      description: "Landing Page pour un complexe de gîtes qui souhaite capturer du traffic à LoireLovers  grands requins de sa région et de son domaine.",
+      category: "Full Stack",
+      technologies: ["Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MultiLingue", "i18n"],
+      image: "landingloirelover.png",
+      link: "https://loirelover.fr/fr",
+      github: "https://github.com/margoul1Malin",
+      featured: false,
+      upcoming: false
+    },
+    {
+      id: 9,
+      title: "Landing Page - Val De Loire France - Le Clos des Rossignols",
+      description: "Landing Page pour un complexe de gîtes qui souhaite capturer du traffic à Val De Loire France  grands requins de sa région et de son domaine.",
+      category: "Full Stack",
+      technologies: ["Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MultiLingue", "i18n"],
+      image: "landingvaldeloire.png",
+      link: "https://www.valdeloires-france.fr/fr",
+      github: "https://github.com/margoul1Malin",
+      featured: false,
+      upcoming: false
+    },
+    {
+      id: 10,
+      title: "Landing Page - GetYourGuide - Le Clos des Rossignols",
+      description: "Landing Page pour un complexe de gîtes qui souhaite capturer du traffic à GetYourGuide  grands requins de sa région et de son domaine.",
+      category: "Full Stack",
+      technologies: ["Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MultiLingue", "i18n"],
+      image: "landinggetyourguides.png",
+      link: "https://www.getyourguides.fr/fr",
+      github: "https://github.com/margoul1Malin",
+      featured: false,
+      upcoming: false
+    },
+    {
+      id: 11,
+      title: "Fiddizzy",
+      description: "Site, Logiciel, Application pour la gestion des entreprises facilitant la comptabilité, rh et assistanat et automatisation des tâches (Devis, Factures, Signatures Electroniques, etc.).",
+      category: "Full Stack",
+      technologies: ["Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MultiLingue", "i18n", "OCR", "AI", "API", "Real Time Preview", "Multi Utilisateurs", "Multi Sociétés", "Etc..."],
+      image: "fidizzy.png",
+      link: "https://github.com/margoul1Malin",
+      github: "https://github.com/margoul1Malin",
+      featured: true,
+      upcoming: true
+    },
+    {
+      id: 12,
+      title: "Ticketizy - Logiciel Windows",
+      description: "Logiciel Windows pour l'automatisation de création d'étiquettes d'exportations pour un client, avec extraction des données textuelles d'images.",
+      category: "Full Stack",
+      technologies: ["Electron", "React", "OCR", "AI (Gemini)", "Windows 10/11", "Compatible macOS et Linux"],
+      image: "Ticketizy.png",
+      link: "https://www.oxelya.com",
+      github: "https://github.com/margoul1Malin",
+      featured: false,
+      upcoming: false
+    },
+    {
+      id: 13,
+      title: "Cronify - Logiciel Windows",
+      description: "Logiciel Windows pour gérer les cronjobs et tâches planifiées, intéroperabilité sur tous systèmes et abordable pour des utilisateurs non-techniques.",
+      category: "Full Stack",
+      technologies: ["Electron", "React", "Cronjobs / Scheduled Tasks", "Windows 10/11", "Compatible macOS et Linux"],
+      image: "cronify.png",
+      link: "https://www.oxelya.com",
+      github: "https://github.com/margoul1Malin",
+      featured: false,
+      upcoming: false
     }
   ];
 
