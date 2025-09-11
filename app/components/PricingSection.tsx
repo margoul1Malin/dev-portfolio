@@ -20,14 +20,23 @@ interface PricingPlan {
 
 const PricingSection = () => {
   const [, setHoveredPlan] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>('Site Internet');
+
+  // Catégories de navigation
+  const categories = [
+    { id: 'Site Internet', name: 'Site Internet', icon: '🌐' },
+    { id: 'SEO', name: 'SEO', icon: '📊' },
+    { id: 'Logiciel', name: 'Logiciel', icon: '💻' },
+    { id: 'Programmation', name: 'Programmation', icon: '⚡' }
+  ];
 
   // Structure flexible pour permettre la gestion depuis le panel admin
-  const pricingPlans: PricingPlan[] = [
+  const allPricingPlans: PricingPlan[] = [
     {
       id: 'landing-page',
       title: 'Landing Page',
       description: 'Page d\'atterrissage optimisée pour la conversion',
-      category: 'Site Simple',
+      category: 'Site Internet',
       features: [
         'Design responsive et moderne',
         'Optimisation SEO incluse',
@@ -39,7 +48,7 @@ const PricingSection = () => {
         { name: 'Multilingue', price: 60 },
         { name: 'Chatbot simple', price: 200 }
       ],
-      price: "120 - 800",
+      price: "Prix de départ : 120",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
@@ -50,7 +59,7 @@ const PricingSection = () => {
       id: 'site-vitrine',
       title: 'Site Vitrine',
       description: 'Présentation professionnelle de votre entreprise',
-      category: 'Site Corporate',
+      category: 'Site Internet',
       features: [
         'Design sur demande & sur mesure',
         'Jusqu\'à 15 pages',
@@ -66,7 +75,7 @@ const PricingSection = () => {
         { name: 'Newsletter automatique', price: 150 },
         { name: 'Blog in-site', price: 100 }
       ],
-      price: "250 - 900",
+      price: "Prix de départ : 250",
       priceLabel: '€',
       isContactOnly: false,
       popular: true,
@@ -77,7 +86,7 @@ const PricingSection = () => {
       id: 'e-commerce',
       title: 'E-Commerce',
       description: 'Boutique en ligne complète et sécurisée',
-      category: 'Site Marchand',
+      category: 'Site Internet',
       features: [
         'Catalogue produits illimité',
         'Panier et checkout sécurisé',
@@ -89,11 +98,10 @@ const PricingSection = () => {
         'Support technique 30 jours'
       ],
       addons: [
-        { name: 'Programme de fidélité', price: 400 },
-        { name: 'Avis clients avancés', price: 200 },
-        { name: 'Marketplace multi-vendeurs', price: 800 }
+        { name: 'Programme de fidélité', price: 100 },
+        { name: 'Avis clients avancés', price: 100 },
       ],
-      price: "650 - 3000",
+      price: "Prix de départ :450",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
@@ -104,7 +112,7 @@ const PricingSection = () => {
       id: 'site-contenu',
       title: 'Plateforme de Contenu',
       description: 'Articles, Vidéos, Formations, etc.',
-      category: 'Site Éditorial',
+      category: 'Site Internet',
       features: [
         'CMS personnalisé',
         'Système de catégories',
@@ -120,7 +128,7 @@ const PricingSection = () => {
         { name: 'Système de Notifications', price: 100 },
         { name: 'Système de Rating & Commentaires', price: 100 },
       ],
-      price: "350 - 1500",
+      price: "Prix de départ : 350",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
@@ -132,7 +140,7 @@ const PricingSection = () => {
       id: 'web-app',
       title: 'Web App',
       description: 'Application web sur mesure selon vos besoins',
-      category: 'Application',
+      category: 'Site Internet',
       features: [
         'Développement sur mesure',
         'Interface utilisateur avancée',
@@ -156,7 +164,7 @@ const PricingSection = () => {
       id: 'forum',
       title: 'Forum',
       description: 'Communauté en ligne avec système de discussion et de messagerie',
-      category: 'Site Communautaire',
+      category: 'Site Internet',
       features: [
         'Système de forums/sujets',
         'Profils utilisateurs',
@@ -172,7 +180,7 @@ const PricingSection = () => {
         { name: 'Système de réputation', price: 200 },
         { name: 'Marketplace intégrée', price: 400 }
       ],
-      price: "500 - 1700",
+      price: "Prix de départ : 450",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
@@ -183,7 +191,7 @@ const PricingSection = () => {
       id: 'evenementiel',
       title: 'Événementiel',
       description: 'Site dédié à la gestion d\'événements',
-      category: 'Site Événement',
+      category: 'Site Internet',
       features: [
         'Gestion des inscriptions',
         'Billetterie intégrée',
@@ -197,7 +205,7 @@ const PricingSection = () => {
       addons: [
         { name: 'Voir Selon Vos Besoins', price: '0' },
       ],
-      price: "350 - 3000",
+      price: "Prix de départ : 350",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
@@ -208,7 +216,7 @@ const PricingSection = () => {
       id: 'reseaux-sociaux',
       title: 'Réseaux Sociaux',
       description: 'Plateforme sociale personnalisée',
-      category: 'Site Social',
+      category: 'Site Internet',
       features: [
         'Profils utilisateurs complets',
         'Système d\'amis/followers',
@@ -223,14 +231,202 @@ const PricingSection = () => {
         { name: 'Algorithme de Recommandation', price: "0-1500€" },
         { name: 'Voir Selon Vos Besoins', price: "0" },
       ],
-      price: "350 - 3000",
+      price: "Prix de départ : 750",
       priceLabel: '€',
       isContactOnly: false,
       popular: false,
       deliveryTime: 'Sur devis',
       icon: '👥'
-    }
+    },
+    // Plans SEO
+    {
+      id: 'audit-seo',
+      title: 'Audit SEO COMPLET',
+      description: 'Analyse complète de votre référencement et de votre site web',
+      category: 'SEO',
+      features: [
+        'Audit technique complet (Schema.org, Sitemap, JSON-LD, etc..)',
+        'Analyse des mots-clés (Google Keyword Planner, SEMRush, Ahrefs, etc..)',
+        'Analyse de la concurrence (Outils personnalisés)',
+        'Analyse des performances (Web Core Vitals, Analytics, etc..)',
+        'Rapport détaillé avec recommandations',
+        'Plan d\'action prioritaire'
+      ],
+      price: "Prix de départ : 50",
+      priceLabel: '€',
+      isContactOnly: false,
+      popular: true,
+      deliveryTime: '1 jours',
+      icon: '🔍'
+    },
+    {
+      id: 'optimisation-seo',
+      title: 'Optimisation SEO On-Page',
+      description: 'Amélioration du code et des performances de votre site web',
+      category: 'SEO',
+      features: [
+        'Optimisation technique (Schema.org, Sitemap, JSON-LD, etc..)',
+        'Optimisation du contenu (Mots-clés, Titres, Description, etc..)',
+        'Amélioration de la vitesse (LCP, FID, CLS, etc..)',
+        'Structure des données (Structure des données, etc..)',
+        'Suivi des performances (Web Core Vitals, Analytics, etc..)',
+        'Amélioration ou Implémentation de la SERP et des People Also Ask',
+        'Rapport détaillé avec recommandations',
+      ],
+      addons: [
+        { name: 'Création de contenu', price: 30 },
+      ],
+      price: "Prix de départ : 200",
+      priceLabel: '€',
+      isContactOnly: false,
+      popular: false,
+      deliveryTime: '1-2 jours',
+      icon: '📈'
+    },
+    {
+      id: 'optimisation-seo-off-page',
+      title: 'Optimisation SEO Off-Page',
+      description: 'Amélioration du référencement de votre site web',
+      category: 'SEO',
+      features: [
+        'Netlinking (Backlinks, etc..)',
+        'Google Business Profile, Apple Business, Google Maps, Bing Places, etc..',
+        'PBN (Private Blog Network)',
+        'Landing Pages Multiples',
+        'Contact Annuaires Locaux',
+        'Gestion du contenu UGC'
+      ],
+      addons: [
+        { name: 'Ajout sur mon réseau PBN', price: 100 },
+        { name: 'Prix par landing page', price: 80 },
+      ],
+      price: "Prix de départ : 200",
+      priceLabel: '€',
+      isContactOnly: false,
+      popular: false,
+      deliveryTime: '1-2 jours',
+      icon: '📈'
+    },
+    // Plans Logiciel
+    {
+      id: 'logiciel-desktop',
+      title: 'Application Desktop',
+      description: 'Logiciel sur mesure pour votre activité',
+      category: 'Logiciel',
+      features: [
+        'Interface utilisateur moderne',
+        'Base de données intégrée',
+        'Sauvegarde automatique',
+        'Multi-plateforme (Windows/Mac/Linux)',
+        'Support et maintenance'
+      ],
+      addons: [
+        { name: 'Module de reporting', price: 300 },
+        { name: 'Interface mobile', price: 500 },
+        { name: 'Interopérabilité avec d\'autres logiciels et systèmes', price: 300 },
+      ],
+      isContactOnly: true,
+      popular: false,
+      deliveryTime: 'Sur devis',
+      icon: '🖥️'
+    },
+    {
+      id: 'logiciel-mobile',
+      title: 'Application Mobile',
+      description: 'App mobile native ou hybride',
+      category: 'Logiciel',
+      features: [
+        'Design natif iOS/Android',
+        'Push notifications',
+        'Fonctionnalités offline',
+        'Intégration API',
+        'Publication sur les stores'
+      ],
+      addons: [
+        { name: 'Version tablet', price: 400 },
+        { name: 'Géolocalisation', price: 200 }
+      ],
+      isContactOnly: true,
+      popular: false,
+      deliveryTime: 'Sur devis',
+      icon: '📱'
+    },
+    // Plans Programmation
+    {
+      id: 'script-automation',
+      title: 'Scripts d\'Automatisation',
+      description: 'Automatisez vos tâches répétitives',
+      category: 'Programmation',
+      features: [
+        'Analyse de vos besoins',
+        'Scripts Python & Node.jspersonnalisés',
+        'Interface simple',
+        'Documentation complète',
+        'Formation à l\'utilisation',
+        'Support technique 30 jours'
+      ],
+      addons: [
+        { name: 'Interface graphique', price: 150 },
+        { name: 'Planification automatique', price: 100 }
+      ],
+      price: "Prix de départ : 100",
+      priceLabel: '€',
+      isContactOnly: false,
+      popular: true,
+      deliveryTime: '2-5 jours',
+      icon: '🤖'
+    },
+    {
+      id: 'integration-api',
+      title: 'Intégration API',
+      description: 'Connectez vos systèmes entre eux',
+      category: 'Programmation',
+      features: [
+        'Analyse des API existantes',
+        'Développement des connecteurs',
+        'Synchronisation des données',
+        'Gestion des erreurs',
+        'Monitoring des échanges'
+      ],
+      addons: [
+        { name: 'Interface de monitoring', price: 200 },
+        { name: 'Alertes en temps réel', price: 100 }
+      ],
+      price: "Prix de départ : 200",
+      priceLabel: '€',
+      isContactOnly: false,
+      popular: false,
+      deliveryTime: '3-7 jours',
+      icon: '🔗'
+    },
+    {
+      id: 'iot',
+      title: 'IoT',
+      description: 'Intégration de vos appareils connectés',
+      category: 'Programmation',
+      features: [
+        'Analyse de vos besoins',
+        'Intégration de vos appareils connectés',
+        'Interface simple',
+        'Documentation complète',
+        'Support technique 30 jours',
+        'MicroPython et CircuitPython'
+      ],
+      addons: [
+        { name: 'Interface graphique', price: 150 },
+        { name: 'Planification automatique', price: 100 }
+      ],
+      price: "Prix de départ : 100",
+      priceLabel: '€',
+      isContactOnly: false,
+      popular: true,
+      deliveryTime: '2-5 jours',
+      icon: '🤖'
+    },
   ];
+
+  // Filtrer les plans par catégorie active
+  const pricingPlans = allPricingPlans.filter(plan => plan.category === activeCategory);
 
   const formatPrice = (plan: PricingPlan) => {
     if (plan.isContactOnly) {
@@ -268,11 +464,36 @@ const PricingSection = () => {
             <span className="text-gradient">Mes</span>
             <span className="text-white"> Tarifs</span>
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto animate-slide-in-up animation-delay-1000">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto animate-slide-in-up animation-delay-1000 mb-8">
             Des solutions web sur mesure adaptées à vos besoins et votre budget.
             Chaque projet est unique et mérite une attention particulière.<br></br><br></br>
             (<strong>Les prix sont indicatifs et peuvent varier en fonction des besoins et des spécificités du projet ainsi que des moyens du client.</strong>)
           </p>
+
+          {/* Navigation par catégories */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`group relative px-6 py-3 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 ${
+                  activeCategory === category.id
+                    ? 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black'
+                    : 'glass text-white/80 hover:text-white hover:glass-strong'
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <span className="text-lg">{category.icon}</span>
+                  <span>{category.name}</span>
+                </span>
+                
+                {/* Effet de glow pour la catégorie active */}
+                {activeCategory === category.id && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-2xl blur-lg opacity-30 -z-10"></div>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Grille de tarifs */}

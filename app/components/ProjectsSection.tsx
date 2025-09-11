@@ -71,15 +71,15 @@ const ProjectsSection = () => {
     },
     {
       id: 6,
-      title: "aOsint",
-      description: "Ce sera LE site web framework d'OSINT par excellence regroupant tout ce qu'on peut imaginer avoir besoin un jour.",
-      category: "DevOps & OSINT",
-      technologies: ["Next.js", "RabbitMQ", "Tailwind", "Python", "Bash", "REST API"],
-      image: "gOsint-min.png",
+      title: "Psychoz",
+      description: "Blog axé principalement sur la psychologie et les sciences cognitives.",
+      category: "Full Stack",
+      technologies: ["Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MongoDB", "Prisma", "Data Scraping", "SEO"],
+      image: "psychoz.png",
       link: "https://github.com/margoul1Malin",
       github: "https://github.com/margoul1Malin",
-      featured: false,
-      upcoming: true
+      featured: true,
+      upcoming: false
     },
     {
       id: 7,
@@ -130,18 +130,6 @@ const ProjectsSection = () => {
       upcoming: false
     },
     {
-      id: 11,
-      title: "Fiddizzy",
-      description: "Site, Logiciel, Application pour la gestion des entreprises facilitant la comptabilité, rh et assistanat et automatisation des tâches (Devis, Factures, Signatures Electroniques, etc.).",
-      category: "Full Stack",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MultiLingue", "i18n", "OCR", "AI", "API", "Real Time Preview", "Multi Utilisateurs", "Multi Sociétés", "Etc..."],
-      image: "fidizzy.png",
-      link: "https://github.com/margoul1Malin",
-      github: "https://github.com/margoul1Malin",
-      featured: true,
-      upcoming: true
-    },
-    {
       id: 12,
       title: "Ticketizy - Logiciel Windows",
       description: "Logiciel Windows pour l'automatisation de création d'étiquettes d'exportations pour un client, avec extraction des données textuelles d'images.",
@@ -163,6 +151,30 @@ const ProjectsSection = () => {
       link: "https://www.oxelya.com",
       github: "https://github.com/margoul1Malin",
       featured: false,
+      upcoming: false
+    },
+    {
+      id: 14,
+      title: "TechAnswers",
+      description: "Blog axé sur les technologies et les nouvelles technologies.",
+      category: "Full Stack",
+      technologies: ["COBE","Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MongoDB", "Prisma", "Data Scraping", "SEO"],
+      image: "techanswers.png",
+      link: "https://github.com/margoul1Malin",
+      github: "https://github.com/margoul1Malin",
+      featured: true,
+      upcoming: false
+    },
+    {
+      id: 15,
+      title: "NutriWise",
+      description: "Blog axé sur la nutrition et la santé.",
+      category: "Full Stack",
+      technologies: ["COBE","Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MongoDB", "Prisma", "Data Scraping", "SEO"],
+      image: "nutriwise.png",
+      link: "https://github.com/margoul1Malin",
+      github: "https://github.com/margoul1Malin",
+      featured: true,
       upcoming: false
     }
   ];
