@@ -27,7 +27,7 @@ const ProjectsSection = () => {
       category: "Full Stack",
       technologies: ["React", "Node.js", "MongoDB", "Stripe", "Markdown", "CMS"],
       image: "Drhead-min.png",
-      link: "https://www.drhead.org",
+      link: "https://www.drhead.fr",
       github: "https://github.com/margoul1Malin",
       featured: true,
       upcoming: false
@@ -44,21 +44,8 @@ const ProjectsSection = () => {
       featured: true,
       upcoming: false
     },
-     {
-      id: 4,
-      title: "ClimGo - Chauffage & Climatisation",
-      description: "Site vitrine pour une entreprise de chauffage et de climatisation.",
-      category: "Site Vitrine",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Prisma", "Shadcn/UI"],
-      image: "/sdb-pyla.jpeg",
-      link: "https://climgo.fr/",
-      github: "https://github.com/margoul1Malin/climgo",
-      featured: false,
-      upcoming: false
-    },
-    
     {
-      id: 5,
+      id: 4,
       title: "Watson",
       description: "Un bien meilleur remplaçant pour Sherlock quand il s'agit d'OSINT",
       category: "OSINT & Data Scraping",
@@ -70,13 +57,13 @@ const ProjectsSection = () => {
       upcoming: false
     },
     {
-      id: 6,
+      id: 5,
       title: "Psychoz",
       description: "Blog axé principalement sur la psychologie et les sciences cognitives.",
       category: "Full Stack",
       technologies: ["Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MongoDB", "Prisma", "Data Scraping", "SEO"],
       image: "psychoz.png",
-      link: "https://github.com/margoul1Malin",
+      link: "https://www.psychoz.fr",
       github: "https://github.com/margoul1Malin",
       featured: true,
       upcoming: false
@@ -130,7 +117,7 @@ const ProjectsSection = () => {
       upcoming: false
     },
     {
-      id: 12,
+      id: 11,
       title: "Ticketizy - Logiciel Windows",
       description: "Logiciel Windows pour l'automatisation de création d'étiquettes d'exportations pour un client, avec extraction des données textuelles d'images.",
       category: "Full Stack",
@@ -142,7 +129,7 @@ const ProjectsSection = () => {
       upcoming: false
     },
     {
-      id: 13,
+      id: 12,
       title: "Cronify - Logiciel Windows",
       description: "Logiciel Windows pour gérer les cronjobs et tâches planifiées, intéroperabilité sur tous systèmes et abordable pour des utilisateurs non-techniques.",
       category: "Full Stack",
@@ -154,19 +141,7 @@ const ProjectsSection = () => {
       upcoming: false
     },
     {
-      id: 14,
-      title: "TechAnswers",
-      description: "Blog axé sur les technologies et les nouvelles technologies.",
-      category: "Full Stack",
-      technologies: ["COBE","Next.js", "TypeScript", "Tailwind", "Shadcn/UI", "MongoDB", "Prisma", "Data Scraping", "SEO"],
-      image: "techanswers.png",
-      link: "https://github.com/margoul1Malin",
-      github: "https://github.com/margoul1Malin",
-      featured: true,
-      upcoming: false
-    },
-    {
-      id: 15,
+      id: 13,
       title: "NutriWise",
       description: "Blog axé sur la nutrition et la santé.",
       category: "Full Stack",
